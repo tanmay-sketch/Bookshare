@@ -8,15 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController{
+    
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet var toolbar: UIToolbar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.keyboardType = UIKeyboardType.numberPad
+        textField.inputAccessoryView = toolbar
     }
-
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+        textField.resignFirstResponder()
+    }
+    
+    
 
     @IBAction func loginButtonTapped(_ sender: Any) {
         print(textField.text)
@@ -26,7 +33,11 @@ class ViewController: UIViewController {
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
-        
-    }
-}
+   
 
+
+
+
+
+}
+}
