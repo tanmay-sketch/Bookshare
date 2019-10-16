@@ -3,11 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="Dse-xS-Qyu">
             <objects>
                 <viewController id="jtA-TE-j6i" customClass="ViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,7 +22,7 @@
                                     <constraint firstAttribute="width" secondItem="UKe-jf-B4p" secondAttribute="height" multiplier="5:1" id="YQG-lx-5hy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" red="0.87058823529999996" green="0.94117647059999998" blue="0.52941176469999995" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Mobile Number" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMB-TJ-LVe">
@@ -43,7 +44,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZ3-bK-EB9">
                                 <rect key="frame" x="102" y="508" width="210" height="36"/>
-                                <color key="backgroundColor" red="0.2784313725" green="0.32156862749999998" blue="0.36862745099999999" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RZ3-bK-EB9" secondAttribute="height" multiplier="35:6" id="UXu-Ly-KhP"/>
                                 </constraints>
@@ -57,7 +58,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KMB-TJ-LVe" firstAttribute="leading" secondItem="3kC-v4-Nbf" secondAttribute="leading" constant="20" id="0gm-5u-JpS"/>
                             <constraint firstItem="UKe-jf-B4p" firstAttribute="centerX" secondItem="7tN-KR-Zn1" secondAttribute="centerX" id="4Rp-Yx-ivd"/>
@@ -74,7 +75,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3kC-v4-Nbf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XaY-Jr-xjJ"/>
+                    <navigationItem key="navigationItem" title="Login" id="XaY-Jr-xjJ"/>
                     <connections>
                         <outlet property="textField" destination="KMB-TJ-LVe" id="F3D-rd-4QJ"/>
                         <outlet property="toolbar" destination="BZL-SY-fDs" id="s3N-dx-qdE"/>
@@ -96,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="789.85507246376812" y="81.696428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--OTPViewController-->
         <scene sceneID="4o6-Zq-2WB">
             <objects>
-                <viewController id="WCQ-Xg-Hza" customClass="OTPViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WCQ-Xg-Hza" userLabel="OTPViewController" customClass="OTPViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idt-WF-yaS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,8 +114,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
-                                            <action selector="txtFirst:" destination="5du-hN-Vnf" eventType="editingDidEnd" id="uuy-Sb-KBc"/>
-                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="Iri-Pd-a4E"/>
+                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="UDs-1K-vms"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9VV-8P-Q6r">
@@ -123,7 +123,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
-                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="Wr8-YT-jMo"/>
+                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="pIJ-2r-KJ3"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7q-cP-e5H">
@@ -132,7 +132,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
-                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="Vnw-qq-rOp"/>
+                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="pZM-LW-HzV"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="koJ-p1-lSh">
@@ -141,7 +141,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
-                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="TDm-yb-YwN"/>
+                                            <outlet property="delegate" destination="WCQ-Xg-Hza" id="3sl-ke-vKG"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -168,11 +168,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the OTP you received on your phone number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-ct-NT8">
                                 <rect key="frame" x="10" y="168" width="394" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="g4t-mi-gtm" firstAttribute="leading" secondItem="xIB-Bl-tR9" secondAttribute="leading" constant="10" id="BDE-Mr-GZN"/>
                             <constraint firstItem="g4t-mi-gtm" firstAttribute="top" secondItem="4FX-ct-NT8" secondAttribute="bottom" constant="50" id="BnL-gx-dRw"/>
@@ -183,7 +182,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xIB-Bl-tR9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bdC-fV-SmW"/>
+                    <navigationItem key="navigationItem" title="OTP" id="bdC-fV-SmW"/>
                     <connections>
                         <outlet property="txtFirst" destination="NtS-I8-ZO7" id="HV8-wv-JR4"/>
                         <outlet property="txtFourth" destination="9VV-8P-Q6r" id="dUr-eR-qLF"/>
@@ -192,9 +191,62 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMM-ha-oUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="5du-hN-Vnf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1595.6521739130435" y="81.696428571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8bx-c3-17x">
+            <objects>
+                <viewController id="qf6-kr-W0p" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SYg-qv-H6V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kXw-zX-Bs0">
+                                <rect key="frame" x="10" y="423" width="394" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qj-7d-hxE">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="50"/>
+                                        <color key="backgroundColor" red="0.059829837720000001" green="1" blue="0.1703229094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mnc-UK-x4r">
+                                        <rect key="frame" x="101" y="0.0" width="91" height="50"/>
+                                        <color key="backgroundColor" red="0.059829837720000001" green="1" blue="0.1703229094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iej-CZ-cM3">
+                                        <rect key="frame" x="202" y="0.0" width="91" height="50"/>
+                                        <color key="backgroundColor" red="0.059829837720000001" green="1" blue="0.1703229094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8wq-iG-rvn">
+                                        <rect key="frame" x="303" y="0.0" width="91" height="50"/>
+                                        <color key="backgroundColor" red="0.059829837720000001" green="1" blue="0.1703229094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GDp-Wi-OFe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kXw-zX-Bs0" firstAttribute="centerY" secondItem="SYg-qv-H6V" secondAttribute="centerY" id="ITd-pK-eIn"/>
+                            <constraint firstItem="rRy-vp-AaN" firstAttribute="trailing" secondItem="kXw-zX-Bs0" secondAttribute="trailing" constant="10" id="RBT-Rz-NcB"/>
+                            <constraint firstItem="kXw-zX-Bs0" firstAttribute="leading" secondItem="rRy-vp-AaN" secondAttribute="leading" constant="10" id="Uml-8C-CIR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rRy-vp-AaN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mk-Es-RHI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2431.8840579710145" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T8c-M1-LP5">
@@ -217,5 +269,8 @@
     </scenes>
     <resources>
         <image name="logo" width="256" height="256"/>
+        <namedColor name="themeColor">
+            <color red="0.52942425012588501" green="0.52169668674468994" blue="0.53078293800354004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
