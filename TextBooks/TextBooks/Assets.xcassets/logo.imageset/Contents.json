@@ -21,14 +21,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "switch_deselect@2x.png",
+      "scale" : "2x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "2x"
+      ]
     },
     {
       "idiom" : "universal",
