@@ -62,7 +62,7 @@ class TableViewController: UITableViewController {
         let dataIndex = indexPath.row - 1
         if indexPath.row == 0{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
-    
+            cell.textLabel?.text = tableViewData[indexPath.section].title
             return cell
         }
         else{

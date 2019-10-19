@@ -8,35 +8,56 @@
 
 import UIKit
 
+struct TextBook {
+    let image: String
+    let title: String
+}
+
+
 class TextBooksViewController: UIViewController {
 
+    var books = [TextBook]()
+    
+    @IBOutlet var collectionView: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        books = [TextBook(image: "logo", title: "Book 1"),
+                 TextBook(image: "book1", title: "Book 2"),
+                 TextBook(image: "book2", title: "Book 3"),
+                 TextBook(image: "book1", title: "Book 4"),
+                 TextBook(image: "book2", title: "Book 5"),]
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+        let cell = sender as! UICollectionViewCell        
+        let indexPath = collectionView!.indexPath(for: cell)!
+        
+        let detailsController = segue.destination as! BookDetailsViewController
+        detailsController.book = books[indexPath.item]
+        
     }
-    */
+    
 
 }
 
 
 extension TextBooksViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return books.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! CollectionViewCell
+        let book = books[indexPath.item]
+        cell.configure(book: book)
         return cell
     }
     
@@ -47,7 +68,7 @@ extension TextBooksViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let totalWidth = collectionView.bounds.width-10;
+        let totalWidth = collectionView.bounds.width-30;
         
         let eachCellWidth = totalWidth/2
         

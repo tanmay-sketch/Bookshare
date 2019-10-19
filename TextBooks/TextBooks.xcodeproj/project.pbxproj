@@ -17,6 +17,7 @@
 		11BB0984235898F60034EDF3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0983235898F60034EDF3 /* CollectionViewCell.swift */; };
 		11BB098A235B67450034EDF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0989235B67450034EDF3 /* TableViewController.swift */; };
 		BA00E3512358DA6E0071C3A1 /* TextBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */; };
+		BABED5C3235B877700875EB8 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		11BB0983235898F60034EDF3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		11BB0989235B67450034EDF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBooksViewController.swift; sourceTree = "<group>"; };
+		BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				116A4959234E4DD9006C83F4 /* LaunchScreen.storyboard */,
 				116A495C234E4DD9006C83F4 /* Info.plist */,
 				BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */,
+				BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */,
 			);
 			path = TextBooks;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			files = (
 				11BB0984235898F60034EDF3 /* CollectionViewCell.swift in Sources */,
 				11BB098A235B67450034EDF3 /* TableViewController.swift in Sources */,
+				BABED5C3235B877700875EB8 /* BookDetailsViewController.swift in Sources */,
 				117AF6CF2354DFB600D286C3 /* OTPViewController.swift in Sources */,
 				116A4953234E4DD2006C83F4 /* ViewController.swift in Sources */,
 				116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */,

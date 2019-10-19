@@ -10,4 +10,12 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var bookTitle: UILabel!
+ 
+    func configure(book: TextBook) {
+        bookImage.image = UIImage(named: book.image)
+        bookTitle.text = book.title
+    }
+    
 }
