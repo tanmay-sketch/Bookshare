@@ -15,6 +15,7 @@
 		116A495B234E4DD9006C83F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116A4959234E4DD9006C83F4 /* LaunchScreen.storyboard */; };
 		117AF6CF2354DFB600D286C3 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117AF6CE2354DFB600D286C3 /* OTPViewController.swift */; };
 		11BB0984235898F60034EDF3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0983235898F60034EDF3 /* CollectionViewCell.swift */; };
+		11BB098A235B67450034EDF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0989235B67450034EDF3 /* TableViewController.swift */; };
 		BA00E3512358DA6E0071C3A1 /* TextBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		116A495C234E4DD9006C83F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		117AF6CE2354DFB600D286C3 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		11BB0983235898F60034EDF3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		11BB0989235B67450034EDF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBooksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				116A494E234E4DD2006C83F4 /* AppDelegate.swift */,
+				11BB0989235B67450034EDF3 /* TableViewController.swift */,
 				116A4950234E4DD2006C83F4 /* SceneDelegate.swift */,
 				116A4952234E4DD2006C83F4 /* ViewController.swift */,
 				116A4954234E4DD2006C83F4 /* Main.storyboard */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BB0984235898F60034EDF3 /* CollectionViewCell.swift in Sources */,
+				11BB098A235B67450034EDF3 /* TableViewController.swift in Sources */,
 				117AF6CF2354DFB600D286C3 /* OTPViewController.swift in Sources */,
 				116A4953234E4DD2006C83F4 /* ViewController.swift in Sources */,
 				116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */,
