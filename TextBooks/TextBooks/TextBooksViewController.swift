@@ -8,26 +8,18 @@
 
 import UIKit
 
-struct TextBook {
-    let image: String
-    let title: String
-}
-
-
 class TextBooksViewController: UIViewController {
 
-    var books = [TextBook]()
+    var books = [Book]()
     
     @IBOutlet var collectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        books = [TextBook(image: "logo", title: "Book 1"),
-                 TextBook(image: "book1", title: "Book 2"),
-                 TextBook(image: "book2", title: "Book 3"),
-                 TextBook(image: "book1", title: "Book 4"),
-                 TextBook(image: "book2", title: "Book 5"),]
+        
+        let fetcher = BooksDataFetcher()
+        books = fetcher.getAllBooks()
+        
     }
     
 

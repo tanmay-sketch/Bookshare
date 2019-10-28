@@ -13,13 +13,13 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
 
-    var book: TextBook!
+    var book: Book!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bookImage.image = UIImage(named: book.image)
-        bookTitle.text = book.title
+        bookTitle.text = book.name
         
     }
     
