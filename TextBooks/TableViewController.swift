@@ -26,20 +26,22 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableViewData = [cellData(opened: false, title: "Grade 1", sectionData: ["Math","Art","English"]),
-                         cellData(opened: false, title: "Grade 2", sectionData: ["Math","Art","English"]),
-                         cellData(opened: false, title: "Grade 3", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 4", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 5", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 6", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 7", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 8", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 9", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 10", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 11", sectionData: ["Cell1","Cell2","Cell3"]),
-                         cellData(opened: false, title: "Grade 12", sectionData: ["Cell1","Cell2","Cell3"])]
+       // tableViewData = [cellData(opened: false, title: "Grade 1", sectionData: ["Math","Art","English"]),
+                         //cellData(opened: false, title: "Grade 2", sectionData: ["Math","Art","English"]),
+                        // cellData(opened: false, title: "Grade 3", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 4", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 5", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 6", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 7", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 8", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 9", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 10", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 11", sectionData: ["Cell1","Cell2","Cell3"]),
+                         //cellData(opened: false, title: "Grade 12", sectionData: ["Cell1","Cell2","Cell3"])]
 
     }
+    
+    
 
     // MARK: - Table view data source
 

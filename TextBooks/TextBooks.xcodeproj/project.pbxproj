@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110A35C92369BA2B00642939 /* Grade.plist in Resources */ = {isa = PBXBuildFile; fileRef = 110A35C82369BA2B00642939 /* Grade.plist */; };
+		110A35CB2369BB6400642939 /* GradeDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A35CA2369BB6400642939 /* GradeDataFetcher.swift */; };
 		116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A494E234E4DD2006C83F4 /* AppDelegate.swift */; };
 		116A4951234E4DD2006C83F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A4950234E4DD2006C83F4 /* SceneDelegate.swift */; };
 		116A4953234E4DD2006C83F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A4952234E4DD2006C83F4 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110A35C82369BA2B00642939 /* Grade.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Grade.plist; sourceTree = "<group>"; };
+		110A35CA2369BB6400642939 /* GradeDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDataFetcher.swift; sourceTree = "<group>"; };
 		116A494B234E4DD2006C83F4 /* TextBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116A494E234E4DD2006C83F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116A4950234E4DD2006C83F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 		116A4942234E4DD2006C83F4 = {
 			isa = PBXGroup;
 			children = (
+				110A35CA2369BB6400642939 /* GradeDataFetcher.swift */,
 				116A494D234E4DD2006C83F4 /* TextBooks */,
 				116A494C234E4DD2006C83F4 /* Products */,
 			);
@@ -82,6 +87,7 @@
 				116A495C234E4DD9006C83F4 /* Info.plist */,
 				BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */,
 				BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */,
+				110A35C82369BA2B00642939 /* Grade.plist */,
 				BA95F0E52367595A00295346 /* Books.plist */,
 				BA95F0E723675A7400295346 /* BooksDataFetcher.swift */,
 			);
@@ -149,6 +155,7 @@
 				116A495B234E4DD9006C83F4 /* LaunchScreen.storyboard in Resources */,
 				116A4958234E4DD9006C83F4 /* Assets.xcassets in Resources */,
 				116A4956234E4DD2006C83F4 /* Main.storyboard in Resources */,
+				110A35C92369BA2B00642939 /* Grade.plist in Resources */,
 				BA95F0E62367595A00295346 /* Books.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +172,7 @@
 				BABED5C3235B877700875EB8 /* BookDetailsViewController.swift in Sources */,
 				117AF6CF2354DFB600D286C3 /* OTPViewController.swift in Sources */,
 				116A4953234E4DD2006C83F4 /* ViewController.swift in Sources */,
+				110A35CB2369BB6400642939 /* GradeDataFetcher.swift in Sources */,
 				116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */,
 				BA00E3512358DA6E0071C3A1 /* TextBooksViewController.swift in Sources */,
 				BA95F0E823675A7400295346 /* BooksDataFetcher.swift in Sources */,
