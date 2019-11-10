@@ -10,7 +10,6 @@
 		110A35C92369BA2B00642939 /* Grade.plist in Resources */ = {isa = PBXBuildFile; fileRef = 110A35C82369BA2B00642939 /* Grade.plist */; };
 		110A35CB2369BB6400642939 /* GradeDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A35CA2369BB6400642939 /* GradeDataFetcher.swift */; };
 		116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A494E234E4DD2006C83F4 /* AppDelegate.swift */; };
-		116A4951234E4DD2006C83F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A4950234E4DD2006C83F4 /* SceneDelegate.swift */; };
 		116A4953234E4DD2006C83F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A4952234E4DD2006C83F4 /* ViewController.swift */; };
 		116A4956234E4DD2006C83F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116A4954234E4DD2006C83F4 /* Main.storyboard */; };
 		116A4958234E4DD9006C83F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116A4957234E4DD9006C83F4 /* Assets.xcassets */; };
@@ -32,7 +31,6 @@
 		110A35CA2369BB6400642939 /* GradeDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDataFetcher.swift; sourceTree = "<group>"; };
 		116A494B234E4DD2006C83F4 /* TextBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116A494E234E4DD2006C83F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		116A4950234E4DD2006C83F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		116A4952234E4DD2006C83F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		116A4955234E4DD2006C83F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		116A4957234E4DD9006C83F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +38,7 @@
 		116A495C234E4DD9006C83F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		117AF6CE2354DFB600D286C3 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		11BB0983235898F60034EDF3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		11BB0989235B67450034EDF3 /* GradesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradesTableViewController.swift; path = ../GradesTableViewController.swift; sourceTree = "<group>"; };
+		11BB0989235B67450034EDF3 /* GradesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTableViewController.swift; sourceTree = "<group>"; };
 		5B7B886140EC6BB72A5DB738 /* Pods-TextBooks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextBooks.release.xcconfig"; path = "Target Support Files/Pods-TextBooks/Pods-TextBooks.release.xcconfig"; sourceTree = "<group>"; };
 		BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBooksViewController.swift; sourceTree = "<group>"; };
 		BA50812A2377D01D00CD63BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -86,23 +84,18 @@
 			isa = PBXGroup;
 			children = (
 				116A494E234E4DD2006C83F4 /* AppDelegate.swift */,
-				116A4950234E4DD2006C83F4 /* SceneDelegate.swift */,
-				116A4952234E4DD2006C83F4 /* ViewController.swift */,
+				BA50812E2377D51E00CD63BF /* Controllers */,
 				116A4954234E4DD2006C83F4 /* Main.storyboard */,
 				11BB0983235898F60034EDF3 /* CollectionViewCell.swift */,
 				117AF6CE2354DFB600D286C3 /* OTPViewController.swift */,
 				116A4957234E4DD9006C83F4 /* Assets.xcassets */,
 				116A4959234E4DD9006C83F4 /* LaunchScreen.storyboard */,
 				116A495C234E4DD9006C83F4 /* Info.plist */,
-				BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */,
-				BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */,
-				11BB0989235B67450034EDF3 /* GradesTableViewController.swift */,
 				110A35C82369BA2B00642939 /* Grade.plist */,
 				BA95F0E52367595A00295346 /* Books.plist */,
 				BA95F0E723675A7400295346 /* BooksDataFetcher.swift */,
 				110A35CA2369BB6400642939 /* GradeDataFetcher.swift */,
 				BA50812A2377D01D00CD63BF /* GoogleService-Info.plist */,
-				BA50812C2377D2B300CD63BF /* AuthViewController.swift */,
 			);
 			path = TextBooks;
 			sourceTree = "<group>";
@@ -114,6 +107,18 @@
 				5B7B886140EC6BB72A5DB738 /* Pods-TextBooks.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA50812E2377D51E00CD63BF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				116A4952234E4DD2006C83F4 /* ViewController.swift */,
+				BA50812C2377D2B300CD63BF /* AuthViewController.swift */,
+				BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */,
+				BABED5C2235B877700875EB8 /* BookDetailsViewController.swift */,
+				11BB0989235B67450034EDF3 /* GradesTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D3595799AD90F75F4133EC03 /* Frameworks */ = {
@@ -270,7 +275,6 @@
 				116A494F234E4DD2006C83F4 /* AppDelegate.swift in Sources */,
 				BA00E3512358DA6E0071C3A1 /* TextBooksViewController.swift in Sources */,
 				BA95F0E823675A7400295346 /* BooksDataFetcher.swift in Sources */,
-				116A4951234E4DD2006C83F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

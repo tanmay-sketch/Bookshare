@@ -33,7 +33,11 @@ class GradesTableViewController: UITableViewController {
         }
 
     }
-    
+    @IBAction func perforLogout(_ sender: UIBarButtonItem) {
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let controller = storyboard.instantiateViewController(identifier: "MainNavController")
+         UIApplication.shared.delegate?.window??.rootViewController = controller
+     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let booksVC = segue.destination as? TextBooksViewController {
             if let index = self.tableView.indexPathForSelectedRow {
