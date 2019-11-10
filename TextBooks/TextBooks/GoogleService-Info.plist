@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>870116752302-ag8j7roc15j0kqbst43ihjl9h1hh34sp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.870116752302-ag8j7roc15j0kqbst43ihjl9h1hh34sp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyByDulWNa3A-i3064XJvaEJ70g8cX0VVKU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>870116752302</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tanmay.textbooks</string>
+	<key>PROJECT_ID</key>
+	<string>textbooks-64aae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>textbooks-64aae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:870116752302:ios:34e6713f43490db9d9663f</string>
+	<key>DATABASE_URL</key>
+	<string>https://textbooks-64aae.firebaseio.com</string>
+</dict>
+</plist>
