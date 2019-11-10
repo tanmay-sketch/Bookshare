@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXTBOOKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-jf-B4p">
-                                <rect key="frame" x="102" y="138" width="210" height="42"/>
+                                <rect key="frame" x="102" y="94" width="210" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UKe-jf-B4p" secondAttribute="height" multiplier="5:1" id="YQG-lx-5hy"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gld-zV-kbK">
-                                <rect key="frame" x="12" y="128" width="80" height="70"/>
+                                <rect key="frame" x="12" y="84" width="80" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gld-zV-kbK" secondAttribute="height" multiplier="8:7" id="FaV-En-kvK"/>
                                     <constraint firstAttribute="width" constant="80" id="VqA-Ur-fsV"/>
@@ -99,18 +99,18 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </datePicker>
             </objects>
-            <point key="canvasLocation" x="789.85507246376812" y="81.696428571428569"/>
+            <point key="canvasLocation" x="967" y="-1347"/>
         </scene>
         <!--OTPViewController-->
         <scene sceneID="4o6-Zq-2WB">
             <objects>
                 <viewController id="WCQ-Xg-Hza" userLabel="OTPViewController" customClass="OTPViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idt-WF-yaS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4t-mi-gtm">
-                                <rect key="frame" x="10" y="259" width="394" height="70"/>
+                                <rect key="frame" x="10" y="171" width="394" height="70"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtS-I8-ZO7">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
@@ -170,7 +170,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the OTP you received on your phone number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-ct-NT8">
-                                <rect key="frame" x="10" y="168" width="394" height="41"/>
+                                <rect key="frame" x="10" y="80" width="394" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -178,9 +178,6 @@
                                 <rect key="frame" x="176" y="413" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
-                                <connections>
-                                    <segue destination="252-GI-gW5" kind="presentation" modalPresentationStyle="fullScreen" id="ByF-7Q-NZl"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -204,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMM-ha-oUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595.6521739130435" y="81.696428571428569"/>
+            <point key="canvasLocation" x="1772" y="-1347"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="Ite-qo-oPe">
@@ -324,12 +321,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C2Z-PV-c8R"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Textbooks" id="syS-3i-VtU"/>
+                    <navigationItem key="navigationItem" title="Textbooks" id="syS-3i-VtU">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="D3f-J7-NoH">
+                            <connections>
+                                <segue destination="YRP-b3-tOk" kind="unwind" unwindAction="performLogout:" id="tnD-nv-vqa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Fsl-66-YSr" id="Q8M-5w-uiz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60v-7t-k0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YRP-b3-tOk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4357.971014492754" y="81.696428571428569"/>
         </scene>
@@ -432,7 +436,13 @@
                             <outlet property="delegate" destination="a3D-QM-Ydz" id="dgC-cG-zEB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Grades" id="0HM-JZ-z4D"/>
+                    <navigationItem key="navigationItem" title="Grades" id="0HM-JZ-z4D">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="NjV-zy-a8P">
+                            <connections>
+                                <action selector="perforLogout:" destination="a3D-QM-Ydz" id="C6n-lJ-Noj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="0jC-tD-Vmh" kind="show" identifier="showBooks" id="Z8G-JT-q9P"/>
                     </connections>
@@ -444,7 +454,7 @@
         <!--Navigation Controller-->
         <scene sceneID="T8c-M1-LP5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xlO-8K-D9y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavController" automaticallyAdjustsScrollViewInsets="NO" id="xlO-8K-D9y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P4u-Er-C3h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -452,17 +462,70 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jtA-TE-j6i" kind="relationship" relationship="rootViewController" id="ecb-11-b7a"/>
+                        <segue destination="FeK-cI-yjv" kind="relationship" relationship="rootViewController" id="FC9-Hk-uHw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfG-nd-ZOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-120.28985507246378" y="81.696428571428569"/>
+            <point key="canvasLocation" x="339" y="82"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="6yw-XA-FsC">
+            <objects>
+                <viewController id="FeK-cI-yjv" customClass="AuthViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NFL-zb-gXL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXTBOOKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuf-og-MNO">
+                                <rect key="frame" x="102" y="175" width="210" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fuf-og-MNO" secondAttribute="height" multiplier="5:1" id="kWR-rz-8mk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPW-Au-oeU">
+                                <rect key="frame" x="102" y="430" width="210" height="36"/>
+                                <color key="backgroundColor" name="themeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LPW-Au-oeU" secondAttribute="height" multiplier="35:6" id="lbA-JD-7j2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.97029351190000002" green="1" blue="0.98753439740000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="jtA-TE-j6i" eventType="touchUpInside" id="cKD-7c-b8c"/>
+                                    <action selector="loginTapped:" destination="FeK-cI-yjv" eventType="touchUpInside" id="hHT-1S-GFc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LPW-Au-oeU" firstAttribute="centerX" secondItem="NFL-zb-gXL" secondAttribute="centerX" id="2Ki-EG-x9m"/>
+                            <constraint firstItem="LPW-Au-oeU" firstAttribute="centerY" secondItem="NFL-zb-gXL" secondAttribute="centerY" id="Lu3-kL-ZcB"/>
+                            <constraint firstItem="fuf-og-MNO" firstAttribute="top" secondItem="S3t-y3-ZTC" secondAttribute="top" constant="87" id="We3-Lk-obB"/>
+                            <constraint firstItem="fuf-og-MNO" firstAttribute="centerX" secondItem="NFL-zb-gXL" secondAttribute="centerX" id="eyU-HB-qop"/>
+                            <constraint firstItem="LPW-Au-oeU" firstAttribute="width" secondItem="LPW-Au-oeU" secondAttribute="height" multiplier="35:6" id="ibb-cc-YRT"/>
+                            <constraint firstItem="fuf-og-MNO" firstAttribute="width" secondItem="fuf-og-MNO" secondAttribute="height" multiplier="5:1" id="mX0-ef-q5b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S3t-y3-ZTC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="U17-dF-psc"/>
+                    <connections>
+                        <segue destination="252-GI-gW5" kind="presentation" identifier="showGrades" modalPresentationStyle="fullScreen" id="eKS-QM-enL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1k2-Z9-eU6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zbg-O0-Zf9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="252-GI-gW5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavController" automaticallyAdjustsScrollViewInsets="NO" id="252-GI-gW5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="XZ9-Qn-eDN"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LIP-Jn-53m"/>
