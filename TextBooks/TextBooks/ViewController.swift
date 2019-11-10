@@ -16,6 +16,9 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.inputAccessoryView = toolbar
+        #if DEBUG
+        textField.text = "9090909090"
+        #endif
         
     }
     

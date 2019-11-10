@@ -12,6 +12,9 @@ class BookDetailsViewController: UIViewController {
 
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookSubject: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
+    @IBOutlet weak var bookGrade: UILabel!
 
     var book: Book!
     
@@ -20,7 +23,9 @@ class BookDetailsViewController: UIViewController {
         
         bookImage.image = UIImage(named: book.image)
         bookTitle.text = book.name
-        
+        bookSubject.text = book.subject
+        bookAuthor.text = book.author
+        bookGrade.text = String(book.grade)
     }
     
 

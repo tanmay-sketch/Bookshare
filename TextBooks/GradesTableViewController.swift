@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  GradesTableViewController.swift
 //  TextBooks
 //
 //  Created by Tanmay Grandhisiri on 19/10/19.
@@ -8,37 +8,43 @@
 
 import UIKit
 
-struct cellData {
-    var opened = Bool()
-    var title = String()
-    var sectionData = [String]()
-}
-class TableViewController: UITableViewController {
+struct ExpandableData {
+    var opened : Bool
+    var title : String
+    var sectionData : [String]
     
-    var tableViewData = [cellData]()
+    var associatedGrade : Grade
+}
+class GradesTableViewController: UITableViewController {
+    
+    var tableViewData = [ExpandableData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-       // tableViewData = [cellData(opened: false, title: "Grade 1", sectionData: ["Math","Art","English"]),
-                         //cellData(opened: false, title: "Grade 2", sectionData: ["Math","Art","English"]),
-                        // cellData(opened: false, title: "Grade 3", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 4", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 5", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 6", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 7", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 8", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 9", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 10", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 11", sectionData: ["Cell1","Cell2","Cell3"]),
-                         //cellData(opened: false, title: "Grade 12", sectionData: ["Cell1","Cell2","Cell3"])]
+        self.navigationItem.title = "Grades"
 
+        let grades = GradeDataFetcher().getAllGrades()
+        
+        tableViewData = grades.map { grade -> ExpandableData in
+            let title = "Grade \(String(grade.grade))"
+            let data = ExpandableData(opened: false, title: title, sectionData: grade.subjects, associatedGrade: grade)
+            return data
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let booksVC = segue.destination as? TextBooksViewController {
+            if let index = self.tableView.indexPathForSelectedRow {
+                let grade = tableViewData[index.section].associatedGrade
+                booksVC.grade = grade.grade
+                
+                let subject = grade.subjects[index.row-1]
+                booksVC.subject = subject
+            }
+            
+        }
     }
     
     
@@ -46,12 +52,10 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return tableViewData.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if tableViewData[section].opened == true {
             return tableViewData[section].sectionData.count + 1
         }
@@ -64,26 +68,32 @@ class TableViewController: UITableViewController {
         let dataIndex = indexPath.row - 1
         if indexPath.row == 0{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            cell.indentationLevel = 0
             cell.textLabel?.text = tableViewData[indexPath.section].title
+            cell.textLabel?.textColor = UIColor.darkGray
             return cell
         }
         else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            cell.indentationLevel = 1
             cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
+            cell.textLabel?.textColor = UIColor.lightGray
             return cell
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableViewData[indexPath.section].opened == true{
+        if tableViewData[indexPath.section].opened == true && indexPath.row == 0 {
             tableViewData[indexPath.section].opened = false
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
         }
-        else{
+        else if indexPath.row == 0 {
             tableViewData[indexPath.section].opened = true
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
+        } else {
+            self.performSegue(withIdentifier: "showBooks", sender: nil)
         }
     }
     /*

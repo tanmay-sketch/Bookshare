@@ -10,15 +10,22 @@ import UIKit
 
 class TextBooksViewController: UIViewController {
 
-    var books = [Book]()
+    private var books = [Book]()
+    
+    var grade: Int?
+    var subject: String?
     
     @IBOutlet var collectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let _grade = grade, let _subject = subject else {
+            fatalError("Grade and subject are not passed")
+        }
+        
         let fetcher = BooksDataFetcher()
-        books = fetcher.getAllBooks()
+        books = fetcher.getAllBooks(with: _grade, subject: _subject)
         
     }
     

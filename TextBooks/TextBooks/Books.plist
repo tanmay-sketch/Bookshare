@@ -7,40 +7,24 @@
 		<dict>
 			<key>name</key>
 			<string>Physics</string>
+			<key>subject</key>
+			<string>Physics</string>
 			<key>image</key>
 			<string>logo</string>
-			<key>class</key>
-			<string>5</string>
+			<key>grade</key>
+			<integer>5</integer>
 			<key>author</key>
 			<string>John</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Physics</string>
-			<key>class</key>
-			<string>5</string>
-			<key>image</key>
-			<string>logo</string>
-			<key>author</key>
-			<string>John</string>
-		</dict>
-		<dict>
-			<key>name</key>
+			<key>grade</key>
+			<integer>5</integer>
+			<key>subject</key>
 			<string>Physics</string>
 			<key>image</key>
 			<string>logo</string>
-			<key>class</key>
-			<string>5</string>
-			<key>author</key>
-			<string>John</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Physics</string>
-			<key>image</key>
-			<string>logo</string>
-			<key>class</key>
-			<string>5</string>
 			<key>author</key>
 			<string>John</string>
 		</dict>
@@ -49,8 +33,22 @@
 			<string>Physics</string>
 			<key>image</key>
 			<string>logo</string>
-			<key>class</key>
-			<string>5</string>
+			<key>subject</key>
+			<string>Physics</string>
+			<key>grade</key>
+			<integer>5</integer>
+			<key>author</key>
+			<string>John</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>English</string>
+			<key>image</key>
+			<string>logo</string>
+			<key>subject</key>
+			<string>English</string>
+			<key>grade</key>
+			<integer>3</integer>
 			<key>author</key>
 			<string>John</string>
 		</dict>
@@ -59,8 +57,22 @@
 			<string>Physics</string>
 			<key>image</key>
 			<string>logo</string>
-			<key>class</key>
-			<string>5</string>
+			<key>subject</key>
+			<string>art</string>
+			<key>grade</key>
+			<integer>3</integer>
+			<key>author</key>
+			<string>John</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Physics</string>
+			<key>image</key>
+			<string>logo</string>
+			<key>subject</key>
+			<string>Physics</string>
+			<key>grade</key>
+			<integer>5</integer>
 			<key>author</key>
 			<string>John</string>
 		</dict>

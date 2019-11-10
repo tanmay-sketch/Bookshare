@@ -16,19 +16,27 @@ struct Book: Codable {
     let name: String
     let author: String
     let image: String
-    let `class`: String
+    let grade: Int
+    let subject: String
 }
 
 class BooksDataFetcher {
 
-    func getAllBooks() -> [Book] {
+    func getAllBooks(with grade: Int, subject: String) -> [Book] {
         if let url = Bundle.main.url(forResource: "Books", withExtension: "plist") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = PropertyListDecoder()
                 let booksData = try decoder.decode(BooksData.self, from: data)
-                print(booksData.books)
-                return booksData.books
+                
+                let filteredBooks = booksData.books.filter { book -> Bool in
+                    if book.grade == grade && book.subject.lowercased() == subject.lowercased() {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+                return filteredBooks
             } catch {
                 print(error.localizedDescription)
             }

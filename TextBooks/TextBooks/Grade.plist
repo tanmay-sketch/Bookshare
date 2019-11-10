@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Grade</key>
-	<array>
-		<dict>
-			<key>grade</key>
-			<integer>1</integer>
-			<key>subjects</key>
-			<dict>
-				<key>art </key>
-				<string>Art</string>
-				<key>english</key>
-				<string>English</string>
-				<key>math</key>
-				<string>Math</string>
-			</dict>
-		</dict>
-	</array>
-</dict>
+<array>
+	<dict>
+		<key>grade</key>
+		<integer>1</integer>
+		<key>subjects</key>
+		<array>
+			<string>Art</string>
+			<string>English</string>
+			<string>Math</string>
+		</array>
+	</dict>
+	<dict>
+		<key>grade</key>
+		<integer>2</integer>
+		<key>subjects</key>
+		<array>
+			<string>Art</string>
+			<string>English</string>
+			<string>Math</string>
+		</array>
+	</dict>
+	<dict>
+		<key>grade</key>
+		<integer>3</integer>
+		<key>subjects</key>
+		<array>
+			<string>Art</string>
+			<string>English</string>
+			<string>Math</string>
+		</array>
+	</dict>
+	<dict>
+		<key>grade</key>
+		<integer>4</integer>
+		<key>subjects</key>
+		<array>
+			<string>Art</string>
+			<string>English</string>
+			<string>Math</string>
+		</array>
+	</dict>
+</array>
 </plist>
