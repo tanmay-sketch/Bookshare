@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController{
     
     @IBOutlet weak var textField: UITextField!
+    @IBAction func textField(_ sender: Any) {
+    }
     
     @IBOutlet var toolbar: UIToolbar!
     override func viewDidLoad() {
@@ -30,18 +32,16 @@ class ViewController: UIViewController{
     
 
     @IBAction func loginButtonTapped(_ sender: Any) {
-        print(textField.text)
-        if textField.text?.count != 10 {
-            let alert = UIAlertController(title: "Error", message: "Please enter valid mobile number", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }
    
-
-
-
-
+        if textField.text?.count != 10 {
+                 let alert = UIAlertController(title: "Error", message: "Please enter valid mobile number", preferredStyle: .alert)
+                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                 alert.addAction(action)
+                 self.present(alert, animated: true, completion: nil)
+             }
+        
+        print(textField.text)
+        
 
 }
 }
