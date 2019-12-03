@@ -21,11 +21,11 @@ class BookDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bookImage.image = UIImage(named: book.image)
-        bookTitle.text = book.name
+        bookImage.image = UIImage(named: book.image ?? "placeholder")
+        bookTitle.text = book.title
         bookSubject.text = book.subject
-        bookAuthor.text = book.author
-        bookGrade.text = String(book.grade)
+        bookAuthor.text = book.author.first
+        bookGrade.text = String(book.grade.first ?? 1)
     }
     
 

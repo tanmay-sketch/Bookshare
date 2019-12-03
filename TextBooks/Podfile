@@ -7,5 +7,6 @@ target 'TextBooks' do
 
   # Pods for TextBooks
 	pod 'FirebaseUI'
+  pod 'SDWebImage'
 end
 

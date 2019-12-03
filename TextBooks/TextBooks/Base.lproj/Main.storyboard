@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -281,8 +281,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MPs-2h-c04">
                                                     <rect key="frame" x="8" y="10" width="196" height="216"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnk-jj-4T8">
-                                                    <rect key="frame" x="85" y="234" width="42" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wnk-jj-4T8">
+                                                    <rect key="frame" x="8" y="234" width="196" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -292,11 +292,12 @@
                                         <color key="backgroundColor" name="UIcollectionview"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="Wnk-jj-4T8" secondAttribute="bottom" constant="1.5" id="3oO-qM-rnI"/>
+                                            <constraint firstItem="Wnk-jj-4T8" firstAttribute="leading" secondItem="Y3d-ZQ-URk" secondAttribute="leading" constant="8" id="5Sw-oH-8KK"/>
                                             <constraint firstItem="MPs-2h-c04" firstAttribute="top" secondItem="Y3d-ZQ-URk" secondAttribute="topMargin" constant="2" id="EpF-HJ-7w7"/>
                                             <constraint firstItem="MPs-2h-c04" firstAttribute="leading" secondItem="Y3d-ZQ-URk" secondAttribute="leadingMargin" id="LIJ-5m-VD7"/>
                                             <constraint firstItem="Wnk-jj-4T8" firstAttribute="top" secondItem="MPs-2h-c04" secondAttribute="bottom" constant="8" id="Owl-b2-8Bz"/>
                                             <constraint firstItem="MPs-2h-c04" firstAttribute="trailing" secondItem="Y3d-ZQ-URk" secondAttribute="trailingMargin" id="aNs-fw-D7q"/>
-                                            <constraint firstItem="Wnk-jj-4T8" firstAttribute="centerX" secondItem="Y3d-ZQ-URk" secondAttribute="centerX" id="crk-3l-V2C"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wnk-jj-4T8" secondAttribute="trailing" constant="8" id="wUS-ev-zQA"/>
                                         </constraints>
                                         <size key="customSize" width="212" height="264"/>
                                         <connections>
@@ -335,7 +336,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60v-7t-k0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YRP-b3-tOk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4357.971014492754" y="81.696428571428569"/>
+            <point key="canvasLocation" x="3557.971014492754" y="81.696428571428569"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="M7n-IJ-j5k">
@@ -443,13 +444,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="0jC-tD-Vmh" kind="show" identifier="showBooks" id="Z8G-JT-q9P"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zup-RC-Op0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360.8695652173915" y="81.696428571428569"/>
+            <point key="canvasLocation" x="4013" y="-633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T8c-M1-LP5">
@@ -535,7 +533,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="a3D-QM-Ydz" kind="relationship" relationship="rootViewController" id="OZb-64-G8O"/>
+                        <segue destination="0jC-tD-Vmh" kind="relationship" relationship="rootViewController" id="sTl-of-zyO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVf-NO-stD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -546,10 +544,10 @@
     <resources>
         <image name="logo" width="256" height="256"/>
         <namedColor name="UIcollectionview">
-            <color red="0.039215686274509803" green="0.51764705882352946" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeColor">
-            <color red="1" green="0.83300000429153442" blue="0.80900001525878906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.52899998426437378" green="0.5220000147819519" blue="0.53100001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

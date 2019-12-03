@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseFirestore
 
 class TextBooksViewController: UIViewController {
 
     private var books = [Book]()
-    
+    private let db = Firestore.firestore()
+
     var grade: Int?
     var subject: String?
     
@@ -19,19 +22,23 @@ class TextBooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _grade = grade, let _subject = subject else {
-            fatalError("Grade and subject are not passed")
+        db.collection("/books /").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    document.data().forEach { item in
+                        print(" 😃 Item \(item)")
+                        if let value = item.value as? [String: Any] {
+                            let book = Book(with: value)
+                            self.books.append(book)
+                        }
+                        self.collectionView?.reloadData()
+                    }
+                }
+            }
         }
-        
-        let fetcher = BooksDataFetcher()
-        books = fetcher.getAllBooks(with: _grade, subject: _subject)
-        
     }
-    
- 
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

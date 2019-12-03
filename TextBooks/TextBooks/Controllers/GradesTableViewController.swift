@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseFirestore
 
 struct ExpandableData {
     var opened : Bool
@@ -18,18 +20,24 @@ struct ExpandableData {
 class GradesTableViewController: UITableViewController {
     
     var tableViewData = [ExpandableData]()
+    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Grades"
 
-        let grades = GradeDataFetcher().getAllGrades()
+        var grades = [Grade]()
         
-        tableViewData = grades.map { grade -> ExpandableData in
-            let title = "Grade \(String(grade.grade))"
-            let data = ExpandableData(opened: false, title: title, sectionData: grade.subjects, associatedGrade: grade)
-            return data
+        db.collection("/books /").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("Doc: \(document.documentID) => \(document.data())")
+
+                }
+            }
         }
 
     }
@@ -42,10 +50,10 @@ class GradesTableViewController: UITableViewController {
         if let booksVC = segue.destination as? TextBooksViewController {
             if let index = self.tableView.indexPathForSelectedRow {
                 let grade = tableViewData[index.section].associatedGrade
-                booksVC.grade = grade.grade
-                
-                let subject = grade.subjects[index.row-1]
-                booksVC.subject = subject
+//                booksVC.grade = grade.grade
+//
+//                let subject = grade.subjects[index.row-1]
+//                booksVC.subject = subject
             }
             
         }

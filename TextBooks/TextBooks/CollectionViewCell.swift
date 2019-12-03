@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import FirebaseStorage
+import SDWebImage
 
 class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
  
+    private let storage = Storage.storage()
+
     func configure(book: Book) {
-        bookImage.image = UIImage(named: book.image)
-        bookTitle.text = book.name
+        if let image = book.image, !image.isEmpty {
+            print("🎂 Image for \(book.title)")
+            let reference = storage.reference(withPath: image)
+            bookImage.sd_setImage(with: reference)
+        } else {
+            bookImage.image = nil
+            print("🔴Image not given for \(book.title)")
+        }
+        bookTitle.text = book.title
     }
     
 }
