@@ -303,7 +303,7 @@
                                         <connections>
                                             <outlet property="bookImage" destination="MPs-2h-c04" id="nSF-of-dbW"/>
                                             <outlet property="bookTitle" destination="Wnk-jj-4T8" id="U0z-ZI-RYH"/>
-                                            <segue destination="syw-ei-sVh" kind="show" id="e4s-wb-IxM"/>
+                                            <segue destination="syw-ei-sVh" kind="show" identifier="showBookDetails" id="e4s-wb-IxM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -323,9 +323,9 @@
                         <viewLayoutGuide key="safeArea" id="C2Z-PV-c8R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Textbooks" id="syS-3i-VtU">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="D3f-J7-NoH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="584-UQ-yYt">
                             <connections>
-                                <segue destination="YRP-b3-tOk" kind="unwind" unwindAction="performLogout:" id="tnD-nv-vqa"/>
+                                <segue destination="NPc-oK-Kar" kind="presentation" identifier="showFilter" id="iXy-Ad-evT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -334,6 +334,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60v-7t-k0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Logout" id="D3f-J7-NoH">
+                    <connections>
+                        <segue destination="YRP-b3-tOk" kind="unwind" unwindAction="performLogout:" id="tnD-nv-vqa"/>
+                    </connections>
+                </barButtonItem>
                 <exit id="YRP-b3-tOk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3557.971014492754" y="81.696428571428569"/>
@@ -403,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvs-zy-pfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5171.0144927536239" y="81.696428571428569"/>
+            <point key="canvasLocation" x="6081.1594202898559" y="81.696428571428569"/>
         </scene>
         <!--Grades-->
         <scene sceneID="AvA-zb-xPN">
@@ -448,6 +453,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zup-RC-Op0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4013" y="-633"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="gqx-Yu-M18">
+            <objects>
+                <viewController id="Oc6-bX-ZuN" customClass="BooksFilterViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T7m-ys-DY2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pqq-4Y-Idq">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterCell" textLabel="wmV-bU-9df" rowHeight="51" style="IBUITableViewCellStyleDefault" id="F19-Wq-zDZ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F19-Wq-zDZ" id="aAP-Sg-Ntv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wmV-bU-9df">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="51"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Oc6-bX-ZuN" id="8rc-MO-k4x"/>
+                                    <outlet property="delegate" destination="Oc6-bX-ZuN" id="1An-ub-D1q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pqq-4Y-Idq" firstAttribute="leading" secondItem="CeO-dZ-mOH" secondAttribute="leading" id="92Q-of-cjG"/>
+                            <constraint firstItem="pqq-4Y-Idq" firstAttribute="top" secondItem="CeO-dZ-mOH" secondAttribute="top" id="BuG-3F-qeo"/>
+                            <constraint firstItem="CeO-dZ-mOH" firstAttribute="trailing" secondItem="pqq-4Y-Idq" secondAttribute="trailing" id="XOY-da-LA6"/>
+                            <constraint firstItem="CeO-dZ-mOH" firstAttribute="bottom" secondItem="pqq-4Y-Idq" secondAttribute="bottom" id="a1r-5G-VVR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CeO-dZ-mOH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="qGK-wR-PQu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="rSo-7F-cH3">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Oc6-bX-ZuN" id="Kbs-6i-IyC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="pqq-4Y-Idq" id="NQ4-uj-emT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbd-tp-ohK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5902.898550724638" y="-502.23214285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T8c-M1-LP5">
@@ -539,6 +604,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVf-NO-stD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2450.7246376811595" y="81.696428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eeM-xc-fGz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NPc-oK-Kar" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gov-jw-mBI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oc6-bX-ZuN" kind="relationship" relationship="rootViewController" id="maO-lY-ETR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuE-Ll-23B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4992.753623188406" y="-502.23214285714283"/>
         </scene>
     </scenes>
     <resources>

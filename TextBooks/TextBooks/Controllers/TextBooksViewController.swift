@@ -13,10 +13,10 @@ import FirebaseFirestore
 class TextBooksViewController: UIViewController {
 
     private var books = [Book]()
+    private var originalBooks = [Book]()
     private let db = Firestore.firestore()
 
-    var grade: Int?
-    var subject: String?
+    var filterGrade: Int?
     
     @IBOutlet var collectionView: UICollectionView?
     
@@ -28,9 +28,9 @@ class TextBooksViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     document.data().forEach { item in
-                        print(" 😃 Item \(item)")
                         if let value = item.value as? [String: Any] {
                             let book = Book(with: value)
+                            self.originalBooks.append(book)
                             self.books.append(book)
                         }
                         self.collectionView?.reloadData()
@@ -43,15 +43,46 @@ class TextBooksViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        let cell = sender as! UICollectionViewCell        
-        let indexPath = collectionView!.indexPath(for: cell)!
+        if segue.identifier == "showFilter" {
+            if let filterController = (segue.destination as? UINavigationController)?.viewControllers.first as? BooksFilterViewController {
+                filterController.grades = getGradesFromBooks()
+                filterController.filterGrade = self.filterGrade
+                filterController.gradeSelected = { [weak self] grade in
+                    self?.filterGrade = grade
+//                    print("Grade selected is \(grade)")
+                    self?.showBooksFor(grade: grade)
+                }
+            }
+        } else if segue.identifier == "showBookDetails" {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView!.indexPath(for: cell)!
         
-        let detailsController = segue.destination as! BookDetailsViewController
-        detailsController.book = books[indexPath.item]
+            let detailsController = segue.destination as! BookDetailsViewController
+            detailsController.book = books[indexPath.item]
+        }
         
     }
     
+    private func getGradesFromBooks() -> [Int] {
+        var grades = Set<Int>()
+        for book in originalBooks {
+            grades = grades.union(book.grade)
+        }
+        return Array(grades.sorted())
+    }
+    
+    private func showBooksFor(grade: Int?) {
+        if let gradeSelected = grade {
+            books = originalBooks.filter { book -> Bool in
+                return book.grade.contains(gradeSelected)
+            }
+        } else {
+            books.removeAll()
+            books.append(contentsOf: originalBooks)
+        }
+        collectionView?.reloadData()
+        print(books.map({$0.title}))
+    }
 
 }
 
