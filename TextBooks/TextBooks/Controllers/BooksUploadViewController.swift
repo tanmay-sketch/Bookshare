@@ -46,9 +46,12 @@ class BooksUploadViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {
+        
+        //TODO: Validate textfields
+        
         let title = "Dummy title"
         let author = "Dummy Author"
-        let grades = [7,9]
+        let grades = [8,9]
         let subject = "Dummy Subject"
         
         guard let userID = Auth.auth().currentUser?.uid else {
