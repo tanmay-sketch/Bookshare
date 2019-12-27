@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -273,6 +273,11 @@
                         <viewLayoutGuide key="safeArea" id="C2Z-PV-c8R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Textbooks" id="syS-3i-VtU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="Siu-wf-GgB">
+                            <connections>
+                                <segue destination="Ocq-lq-nXp" kind="show" id="BLV-wD-P6r"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="584-UQ-yYt">
                             <connections>
                                 <segue destination="NPc-oK-Kar" kind="presentation" identifier="showFilter" id="iXy-Ad-evT"/>
@@ -581,7 +586,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT8-0n-ETc">
                                 <rect key="frame" x="107" y="338" width="200" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4Xn-oA-znZ"/>
                                     <constraint firstAttribute="width" secondItem="xT8-0n-ETc" secondAttribute="height" multiplier="2:1" id="c0R-gC-laC"/>
@@ -597,7 +602,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxf-ux-kQz">
                                 <rect key="frame" x="107" y="478" width="200" height="100"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Give">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -624,60 +629,74 @@
             </objects>
             <point key="canvasLocation" x="1594" y="82"/>
         </scene>
-        <!--Upload Books View Controller-->
+        <!--Books Upload View Controller-->
         <scene sceneID="S6u-Ba-0pm">
             <objects>
-                <viewController id="Ocq-lq-nXp" customClass="UploadBooksViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ocq-lq-nXp" customClass="BooksUploadViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ic-XL-zzL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVQ-e7-wcL">
-                                <rect key="frame" x="87" y="158" width="240" height="94"/>
+                                <rect key="frame" x="157" y="118" width="100" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HVQ-e7-wcL" secondAttribute="height" multiplier="1:1.2" id="Iam-Ag-ON0"/>
+                                    <constraint firstAttribute="width" constant="100" id="Vjk-G6-11w"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asw-Nu-gZC">
-                                <rect key="frame" x="159.5" y="282" width="95" height="30"/>
+                                <rect key="frame" x="159.5" y="268" width="95" height="30"/>
                                 <state key="normal" title="Upload image"/>
+                                <connections>
+                                    <action selector="uploadImageTapped:" destination="Ocq-lq-nXp" eventType="touchUpInside" id="nve-nC-Jmu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-kH-VJJ">
-                                <rect key="frame" x="87" y="342" width="240" height="21"/>
+                                <rect key="frame" x="144" y="328" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-W4-RPh">
-                                <rect key="frame" x="87" y="373" width="240" height="34"/>
+                                <rect key="frame" x="144" y="359" width="126.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHf-UZ-fr5">
-                                <rect key="frame" x="87" y="468" width="240" height="34"/>
+                                <rect key="frame" x="144" y="454" width="126.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9c-D5-Yfz">
-                                <rect key="frame" x="87" y="437" width="240" height="21"/>
+                                <rect key="frame" x="144" y="423" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5H-NY-hQc">
-                                <rect key="frame" x="87" y="522" width="240" height="21"/>
+                                <rect key="frame" x="144" y="508" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KoA-Dh-tOZ">
-                                <rect key="frame" x="87" y="553" width="240" height="34"/>
+                                <rect key="frame" x="144" y="539" width="126.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQR-fw-hAQ">
+                                <rect key="frame" x="183" y="605" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="Ocq-lq-nXp" eventType="touchUpInside" id="RdD-6Y-xav"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="HVQ-e7-wcL" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="0xj-4D-W83"/>
-                            <constraint firstItem="omQ-kH-VJJ" firstAttribute="width" secondItem="HVQ-e7-wcL" secondAttribute="width" id="7Ng-wE-DtE"/>
-                            <constraint firstItem="HVQ-e7-wcL" firstAttribute="top" secondItem="NPF-y4-uaV" secondAttribute="top" constant="70" id="7mL-l0-H8L"/>
+                            <constraint firstItem="HVQ-e7-wcL" firstAttribute="top" secondItem="NPF-y4-uaV" secondAttribute="top" constant="30" id="7mL-l0-H8L"/>
                             <constraint firstItem="omQ-kH-VJJ" firstAttribute="top" secondItem="asw-Nu-gZC" secondAttribute="bottom" constant="30" id="7tm-md-Nn5"/>
                             <constraint firstItem="KoA-Dh-tOZ" firstAttribute="width" secondItem="MHf-UZ-fr5" secondAttribute="width" id="BHG-o5-8mD"/>
                             <constraint firstItem="y5H-NY-hQc" firstAttribute="top" secondItem="MHf-UZ-fr5" secondAttribute="bottom" constant="20" id="CCY-AU-yeI"/>
@@ -685,7 +704,6 @@
                             <constraint firstItem="omQ-kH-VJJ" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="Dvh-iL-2Di"/>
                             <constraint firstItem="y5H-NY-hQc" firstAttribute="width" secondItem="S9c-D5-Yfz" secondAttribute="width" id="IMN-DE-4vg"/>
                             <constraint firstItem="S9c-D5-Yfz" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="Ier-44-Biz"/>
-                            <constraint firstItem="HVQ-e7-wcL" firstAttribute="leading" secondItem="NPF-y4-uaV" secondAttribute="leading" constant="87" id="K9h-d6-qUU"/>
                             <constraint firstItem="asw-Nu-gZC" firstAttribute="top" secondItem="HVQ-e7-wcL" secondAttribute="bottom" constant="30" id="Qla-3S-Aoa"/>
                             <constraint firstItem="S9c-D5-Yfz" firstAttribute="width" secondItem="omQ-kH-VJJ" secondAttribute="width" id="UPf-b3-Inl"/>
                             <constraint firstItem="KoA-Dh-tOZ" firstAttribute="top" secondItem="y5H-NY-hQc" secondAttribute="bottom" constant="10" id="XrL-7x-KTi"/>
@@ -693,7 +711,6 @@
                             <constraint firstItem="MHf-UZ-fr5" firstAttribute="width" secondItem="S9c-D5-Yfz" secondAttribute="width" id="evd-0R-fP4"/>
                             <constraint firstItem="jhj-W4-RPh" firstAttribute="width" secondItem="omQ-kH-VJJ" secondAttribute="width" id="lsr-Ek-5eD"/>
                             <constraint firstItem="S9c-D5-Yfz" firstAttribute="top" secondItem="jhj-W4-RPh" secondAttribute="bottom" constant="30" id="mwN-Gn-9ji"/>
-                            <constraint firstItem="NPF-y4-uaV" firstAttribute="bottom" secondItem="HVQ-e7-wcL" secondAttribute="bottom" constant="610" id="mxh-mv-oSj"/>
                             <constraint firstItem="asw-Nu-gZC" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="onm-fD-G95"/>
                             <constraint firstItem="KoA-Dh-tOZ" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="qLg-db-v83"/>
                             <constraint firstItem="MHf-UZ-fr5" firstAttribute="top" secondItem="S9c-D5-Yfz" secondAttribute="bottom" constant="10" id="sbE-Vo-IBJ"/>
@@ -703,19 +720,48 @@
                         <viewLayoutGuide key="safeArea" id="NPF-y4-uaV"/>
                     </view>
                     <navigationItem key="navigationItem" id="ixd-Nv-4O3"/>
+                    <connections>
+                        <outlet property="gradesPicker" destination="EMp-bh-Ili" id="QJV-p3-XcG"/>
+                        <outlet property="imageView" destination="HVQ-e7-wcL" id="xCq-ZC-3i1"/>
+                        <outlet property="toolbar" destination="hj4-yj-gq4" id="3oJ-3s-3Wc"/>
+                        <outlet property="txtGrades" destination="KoA-Dh-tOZ" id="Xm8-7Q-ihT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gh3-5I-Rko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hj4-yj-gq4">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="40J-jI-lwj"/>
+                        <barButtonItem systemItem="done" id="s4z-pM-or6">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Ocq-lq-nXp" id="4VT-UN-fQU"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <pickerView contentMode="scaleToFill" id="EMp-bh-Ili">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="Ocq-lq-nXp" id="VSS-kS-tDu"/>
+                        <outlet property="delegate" destination="Ocq-lq-nXp" id="OSf-nR-736"/>
+                    </connections>
+                </pickerView>
             </objects>
-            <point key="canvasLocation" x="2526.0869565217395" y="376.33928571428572"/>
+            <point key="canvasLocation" x="2536" y="538"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo" width="256" height="256"/>
         <namedColor name="UIcollectionview">
-            <color red="0.039215686274509803" green="0.51764705882352946" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeColor">
-            <color red="1" green="0.83300000429153442" blue="0.80900001525878906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.52899998426437378" green="0.5220000147819519" blue="0.53100001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BLV-wD-P6r"/>
+    </inferredMetricsTieBreakers>
 </document>
