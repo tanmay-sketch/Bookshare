@@ -124,61 +124,57 @@ class BooksUploadViewController: UIViewController {
     
     // DYNAMIC TEXT BUTTON
     
+    fileprivate func showalert(with title: String, message:String, okAction: ((_ action:Bool) -> ())? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            okAction?(true)
+        }))
+        
+        self.present(alert,animated: true)
+    }
+    
     @IBAction func submitTapped(_ sender: UIButton) {
         
-        //TODO: Validate textfields
-        
-        let booktitle = txtTitle?.text;
-        let subjectdetail = txtSubject?.text;
-        let authordetail = txtAuthor?.text;
-        //picker details not validated
-        
-        if booktitle?.isEmpty ?? true {
-            let alert = UIAlertController(title: "Book data is not entered", message: "Please enter all details", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert,animated: true)
-            
-        } else if subjectdetail?.isEmpty ?? true{
-            let alert = UIAlertController(title: "Book data is not entered", message: "Please enter all details", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert,animated: true)
-        }
-         
-        else if authordetail?.isEmpty ?? true{
-            let alert = UIAlertController(title: "Book data is not entered", message: "Please enter all details", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert,animated: true)
+        let title = txtTitle!.text;
+        let subject = txtSubject!.text;
+        let grade = txtGrades!.text;
+        let author = txtAuthor!.text;
+    
+        if title?.isEmpty ?? true {
+            showalert(with: "Error", message: "Title not entered")
+            return
+        } else if subject?.isEmpty ?? true {
+            showalert(with: "Error", message: "Subject not entered")
+            return
+        } else if grade?.isEmpty ?? true {
+            showalert(with: "Error", message: "grade not entered")
+            return
+        } else if author?.isEmpty  ?? true {
+            showalert(with: "Error", message: "Author not entered")
+            return
         } else if imageView?.image == nil {
-            let alert = UIAlertController(title: "Book data is not entered", message: "Please enter all details", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.present(alert,animated: true)
-            
+            showalert(with: "Error", message:"Image not selected")
+            return
         }
-        
-        
-        let title = "Dummy title"
-        let author = "Dummy Author"
-        let grades = [8,9]
-        let subject = "Dummy Subject"
         
         guard let userID = Auth.auth().currentUser?.uid else {
             fatalError("User is not logged in")
         }
         
+        let name = Auth.auth().currentUser?.displayName ?? "Some Student"
+        var userData = [String: Any]()
+        userData = ["id": userID, "name": name]
+        if let picture = Auth.auth().currentUser?.photoURL {
+            userData["photo"] = picture.path
+        }
+        
         var doc = [String: Any]()
         doc["title"] = title
         doc["author"] = author
-        doc["grades"] = grades
+        doc["grade"] = grade
         doc["subject"] = subject
-        doc["user"] = userID
+        doc["user"] = userData
         
         if let image = imageView?.image, let data = image.pngData() {
             
@@ -191,13 +187,15 @@ class BooksUploadViewController: UIViewController {
                 if let someError = error {
                     print("Some Error Occured \(someError)")
                 } else if let _metadata = metadata {
-                    print("Upload success \(_metadata.dictionaryRepresentation())")
+                    print("Image Upload success \(_metadata.dictionaryRepresentation())")
                     doc["image"] = _metadata.path ?? "nil"
                     self.db.collection("/testing/").addDocument(data: doc, completion: { error in
                         if let someError = error {
-                            print("Some Error Occured \(someError)")
+                            self.showalert(with: "Error", message: someError.localizedDescription)
                         } else {
-                            print("Insertion success")
+                            self.showalert(with: "Success", message: "Book Uploaded Successfully", okAction: { _ in
+                                self.navigationController?.popViewController(animated: true)
+                            })
                         }
                     })
                 }
