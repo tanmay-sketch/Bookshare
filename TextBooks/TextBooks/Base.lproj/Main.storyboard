@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xlO-8K-D9y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -586,7 +586,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT8-0n-ETc">
                                 <rect key="frame" x="107" y="338" width="200" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4Xn-oA-znZ"/>
                                     <constraint firstAttribute="width" secondItem="xT8-0n-ETc" secondAttribute="height" multiplier="2:1" id="c0R-gC-laC"/>
@@ -602,7 +602,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxf-ux-kQz">
                                 <rect key="frame" x="107" y="478" width="200" height="100"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Give">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -629,27 +629,6 @@
         <!--Books Upload View Controller-->
         <scene sceneID="j97-AZ-FKE">
             <objects>
-                <pickerView contentMode="scaleToFill" id="nja-p5-suF">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <connections>
-                        <outlet property="dataSource" destination="Baf-rg-Auv" id="YRs-BF-eoS"/>
-                        <outlet property="delegate" destination="Baf-rg-Auv" id="On7-Pw-IBj"/>
-                    </connections>
-                </pickerView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Lz9-it-fUd">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <items>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aaQ-uF-kdc"/>
-                        <barButtonItem title="Done" id="Q2M-T9-YSe">
-                            <connections>
-                                <action selector="doneButtonTapped:" destination="Baf-rg-Auv" id="yzR-LJ-gXd"/>
-                            </connections>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lo5-x5-FCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Baf-rg-Auv" customClass="BooksUploadViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rqo-KT-eEQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -661,72 +640,91 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzp-MP-6Kh">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DFf-Ml-Cbg">
-                                                <rect key="frame" x="30" y="260" width="354" height="288"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DFf-Ml-Cbg">
+                                                <rect key="frame" x="30" y="220" width="354" height="288"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyL-S2-CfG">
-                                                        <rect key="frame" x="138.5" y="0.0" width="77" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBT-Js-Ggd">
-                                                        <rect key="frame" x="112" y="30.5" width="130" height="34"/>
+                                                        <rect key="frame" x="0.0" y="30.5" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Baf-rg-Auv" id="Ism-kr-j1p"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Em-22-fm8">
-                                                        <rect key="frame" x="148" y="74.5" width="58.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="74.5" width="58.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkw-HB-GUd">
-                                                        <rect key="frame" x="119.5" y="105" width="115.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="105" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Baf-rg-Auv" id="5ln-qk-Rvc"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHt-bn-Tzk">
-                                                        <rect key="frame" x="153.5" y="149" width="47" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="149" width="47" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Grade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blf-PJ-DPX">
-                                                        <rect key="frame" x="124.5" y="179.5" width="105.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="179.5" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Baf-rg-Auv" id="uVs-iw-isf"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-9v-6BH">
-                                                        <rect key="frame" x="151.5" y="223.5" width="51.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="223.5" width="51.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Author name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-Nd-G64">
-                                                        <rect key="frame" x="102.5" y="254" width="149" height="34"/>
+                                                        <rect key="frame" x="0.0" y="254" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Baf-rg-Auv" id="3J2-Ri-Q6j"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Yv9-Nd-G64" firstAttribute="width" secondItem="gBT-Js-Ggd" secondAttribute="width" id="6MH-Kd-m6c"/>
+                                                    <constraint firstItem="wkw-HB-GUd" firstAttribute="width" secondItem="gBT-Js-Ggd" secondAttribute="width" id="P6a-bW-umm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gBT-Js-Ggd" secondAttribute="trailing" constant="20" id="rqs-aK-XNL"/>
+                                                    <constraint firstItem="Blf-PJ-DPX" firstAttribute="width" secondItem="gBT-Js-Ggd" secondAttribute="width" id="wtO-bv-Eb5"/>
+                                                </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqm-k2-GuQ">
-                                                <rect key="frame" x="40" y="200" width="334" height="30"/>
+                                                <rect key="frame" x="40" y="160" width="334" height="30"/>
                                                 <state key="normal" title="Upload Image"/>
                                                 <connections>
                                                     <action selector="uploadImageTapped:" destination="Baf-rg-Auv" eventType="touchUpInside" id="7d2-Bk-M1f"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uzc-Zw-tr3">
-                                                <rect key="frame" x="157" y="60" width="100" height="120"/>
+                                                <rect key="frame" x="157" y="20" width="100" height="120"/>
+                                                <color key="backgroundColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uzc-Zw-tr3" secondAttribute="height" multiplier="1:1.2" id="Hbc-Um-fzo"/>
                                                     <constraint firstAttribute="width" constant="100" id="jQr-r7-VIu"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUB-gV-aJI">
-                                                <rect key="frame" x="40" y="578" width="334" height="33"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="40" y="538" width="334" height="33"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Select Book Condition">
                                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -736,7 +734,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-yX-g28">
-                                                <rect key="frame" x="40" y="631" width="334" height="30"/>
+                                                <rect key="frame" x="40" y="591" width="334" height="30"/>
                                                 <state key="normal" title="Submit"/>
                                                 <connections>
                                                     <action selector="submitTapped:" destination="Baf-rg-Auv" eventType="touchUpInside" id="rhf-PF-Sj5"/>
@@ -755,8 +753,8 @@
                                             <constraint firstItem="RCg-yX-g28" firstAttribute="top" secondItem="yUB-gV-aJI" secondAttribute="bottom" constant="20" id="SPf-2B-Wai"/>
                                             <constraint firstItem="yUB-gV-aJI" firstAttribute="top" secondItem="DFf-Ml-Cbg" secondAttribute="bottom" constant="30" id="Y7X-mo-ogw"/>
                                             <constraint firstAttribute="trailing" secondItem="Kqm-k2-GuQ" secondAttribute="trailing" constant="40" id="YEv-QK-NqG"/>
+                                            <constraint firstItem="uzc-Zw-tr3" firstAttribute="top" secondItem="Xzp-MP-6Kh" secondAttribute="top" constant="20" id="aqt-bP-MxJ"/>
                                             <constraint firstItem="uzc-Zw-tr3" firstAttribute="centerX" secondItem="Xzp-MP-6Kh" secondAttribute="centerX" id="b77-Zo-5jn"/>
-                                            <constraint firstItem="DFf-Ml-Cbg" firstAttribute="centerY" secondItem="Xzp-MP-6Kh" secondAttribute="centerY" id="bTp-XK-myo"/>
                                             <constraint firstItem="yUB-gV-aJI" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="40" id="i9T-47-GdO"/>
                                             <constraint firstItem="Kqm-k2-GuQ" firstAttribute="top" secondItem="uzc-Zw-tr3" secondAttribute="bottom" constant="20" id="nET-p4-KzK"/>
                                             <constraint firstItem="RCg-yX-g28" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="40" id="oAO-b7-iwQ"/>
@@ -788,6 +786,7 @@
                         <outlet property="btnSelectCondition" destination="yUB-gV-aJI" id="mTX-Vn-r6P"/>
                         <outlet property="gradesPicker" destination="nja-p5-suF" id="eKX-gY-Al9"/>
                         <outlet property="imageView" destination="uzc-Zw-tr3" id="rLl-dI-QGJ"/>
+                        <outlet property="scrollView" destination="lOf-40-LP3" id="WU9-Ol-ytm"/>
                         <outlet property="toolbar" destination="Lz9-it-fUd" id="LJX-DH-2bk"/>
                         <outlet property="txtAuthor" destination="Yv9-Nd-G64" id="NgX-LX-b9U"/>
                         <outlet property="txtGrades" destination="Blf-PJ-DPX" id="SMp-yk-ZBE"/>
@@ -795,6 +794,27 @@
                         <outlet property="txtTitle" destination="gBT-Js-Ggd" id="dEr-k2-XrD"/>
                     </connections>
                 </viewController>
+                <pickerView contentMode="scaleToFill" id="nja-p5-suF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="Baf-rg-Auv" id="YRs-BF-eoS"/>
+                        <outlet property="delegate" destination="Baf-rg-Auv" id="On7-Pw-IBj"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Lz9-it-fUd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aaQ-uF-kdc"/>
+                        <barButtonItem title="Done" id="Q2M-T9-YSe">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Baf-rg-Auv" id="yzR-LJ-gXd"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lo5-x5-FCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="525"/>
         </scene>
@@ -802,10 +822,10 @@
     <resources>
         <image name="logo" width="256" height="256"/>
         <namedColor name="UIcollectionview">
-            <color red="0.039215686274509803" green="0.51764705882352946" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeColor">
-            <color red="1" green="0.83300000429153442" blue="0.80900001525878906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.52899998426437378" green="0.5220000147819519" blue="0.53100001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -25,6 +25,8 @@ class BooksUploadViewController: UIViewController {
     @IBOutlet var txtAuthor: UITextField?
     @IBOutlet var btnSelectCondition: UIButton!
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     @IBOutlet var gradesPicker: UIPickerView?
     @IBOutlet var toolbar: UIToolbar?
     
@@ -56,8 +58,25 @@ class BooksUploadViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0.0)
+            })
+        }
     }
     
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let _ = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                self.scrollView.contentInset = .zero
+            })
+        }
+    }
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.windows.first { $0.isKeyWindow }
         transparentView.frame = window?.frame ?? self.view.frame
@@ -246,6 +265,24 @@ extension BooksUploadViewController: UITableViewDelegate, UITableViewDataSource 
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
         removeTransparentView()
     }
+}
+
+
+extension BooksUploadViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == txtTitle {
+            txtSubject?.becomeFirstResponder()
+        } else if textField == txtSubject {
+            txtGrades?.becomeFirstResponder()
+        } else if textField == txtGrades {
+            txtAuthor?.becomeFirstResponder()
+        } else {
+            txtAuthor?.resignFirstResponder()
+        }
+        return true
+    }
+    
 }
 
     
