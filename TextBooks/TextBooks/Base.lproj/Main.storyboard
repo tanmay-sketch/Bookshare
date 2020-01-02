@@ -273,9 +273,9 @@
                         <viewLayoutGuide key="safeArea" id="C2Z-PV-c8R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Textbooks" id="syS-3i-VtU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="Siu-wf-GgB">
+                        <barButtonItem key="leftBarButtonItem" title="Upload Book" id="Siu-wf-GgB">
                             <connections>
-                                <segue destination="Ocq-lq-nXp" kind="show" id="BLV-wD-P6r"/>
+                                <segue destination="Baf-rg-Auv" kind="show" id="6xL-qu-0mC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="584-UQ-yYt">
@@ -607,9 +607,6 @@
                                 <state key="normal" title="Give">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Ocq-lq-nXp" kind="show" id="lxU-vo-QBS"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -630,164 +627,176 @@
             <point key="canvasLocation" x="1594" y="82"/>
         </scene>
         <!--Books Upload View Controller-->
-        <scene sceneID="S6u-Ba-0pm">
+        <scene sceneID="j97-AZ-FKE">
             <objects>
-                <viewController id="Ocq-lq-nXp" customClass="BooksUploadViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4ic-XL-zzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVQ-e7-wcL">
-                                <rect key="frame" x="157" y="118" width="100" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="HVQ-e7-wcL" secondAttribute="height" multiplier="1:1.2" id="Iam-Ag-ON0"/>
-                                    <constraint firstAttribute="width" constant="100" id="Vjk-G6-11w"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asw-Nu-gZC">
-                                <rect key="frame" x="159.5" y="268" width="95" height="30"/>
-                                <state key="normal" title="Upload image"/>
-                                <connections>
-                                    <action selector="uploadImageTapped:" destination="Ocq-lq-nXp" eventType="touchUpInside" id="nve-nC-Jmu"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-kH-VJJ">
-                                <rect key="frame" x="144" y="328" width="126.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-W4-RPh">
-                                <rect key="frame" x="144" y="359" width="126.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHf-UZ-fr5">
-                                <rect key="frame" x="144" y="454" width="126.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9c-D5-Yfz">
-                                <rect key="frame" x="144" y="423" width="126.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQR-fw-hAQ">
-                                <rect key="frame" x="183" y="753" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitTapped:" destination="Ocq-lq-nXp" eventType="touchUpInside" id="RdD-6Y-xav"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnO-B0-re5">
-                                <rect key="frame" x="30" y="508" width="354" height="40"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="xVF-Zt-qmM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Select Grade">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickSelectGrade:" destination="Ocq-lq-nXp" eventType="touchUpInside" id="FK0-Rz-eOe"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5H-NY-hQc">
-                                <rect key="frame" x="144" y="568" width="126.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K36-CM-KIq">
-                                <rect key="frame" x="144" y="653" width="126.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KoA-Dh-tOZ">
-                                <rect key="frame" x="144" y="599" width="126.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="097-7r-i4y">
-                                <rect key="frame" x="144" y="684" width="126.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="HVQ-e7-wcL" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="0xj-4D-W83"/>
-                            <constraint firstItem="K36-CM-KIq" firstAttribute="width" secondItem="y5H-NY-hQc" secondAttribute="width" id="1Za-SR-jOx"/>
-                            <constraint firstItem="y5H-NY-hQc" firstAttribute="top" secondItem="nnO-B0-re5" secondAttribute="bottom" constant="20" id="3tW-rq-xGB"/>
-                            <constraint firstItem="NPF-y4-uaV" firstAttribute="trailing" secondItem="nnO-B0-re5" secondAttribute="trailing" constant="30" id="3wQ-kh-t8g"/>
-                            <constraint firstItem="HVQ-e7-wcL" firstAttribute="top" secondItem="NPF-y4-uaV" secondAttribute="top" constant="30" id="7mL-l0-H8L"/>
-                            <constraint firstItem="omQ-kH-VJJ" firstAttribute="top" secondItem="asw-Nu-gZC" secondAttribute="bottom" constant="30" id="7tm-md-Nn5"/>
-                            <constraint firstItem="KoA-Dh-tOZ" firstAttribute="width" secondItem="MHf-UZ-fr5" secondAttribute="width" id="BHG-o5-8mD"/>
-                            <constraint firstItem="jhj-W4-RPh" firstAttribute="top" secondItem="omQ-kH-VJJ" secondAttribute="bottom" constant="10" id="CN6-cS-Fxw"/>
-                            <constraint firstItem="omQ-kH-VJJ" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="Dvh-iL-2Di"/>
-                            <constraint firstItem="nnO-B0-re5" firstAttribute="top" secondItem="MHf-UZ-fr5" secondAttribute="bottom" constant="20" id="G9s-CN-HHp"/>
-                            <constraint firstItem="y5H-NY-hQc" firstAttribute="width" secondItem="S9c-D5-Yfz" secondAttribute="width" id="IMN-DE-4vg"/>
-                            <constraint firstItem="S9c-D5-Yfz" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="Ier-44-Biz"/>
-                            <constraint firstItem="K36-CM-KIq" firstAttribute="top" secondItem="KoA-Dh-tOZ" secondAttribute="bottom" constant="20" id="KtZ-fn-JPn"/>
-                            <constraint firstItem="asw-Nu-gZC" firstAttribute="top" secondItem="HVQ-e7-wcL" secondAttribute="bottom" constant="30" id="Qla-3S-Aoa"/>
-                            <constraint firstItem="S9c-D5-Yfz" firstAttribute="width" secondItem="omQ-kH-VJJ" secondAttribute="width" id="UPf-b3-Inl"/>
-                            <constraint firstItem="097-7r-i4y" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="VZ7-nq-G3X"/>
-                            <constraint firstItem="097-7r-i4y" firstAttribute="width" secondItem="KoA-Dh-tOZ" secondAttribute="width" id="Xkd-UG-S57"/>
-                            <constraint firstItem="KoA-Dh-tOZ" firstAttribute="top" secondItem="y5H-NY-hQc" secondAttribute="bottom" constant="10" id="XrL-7x-KTi"/>
-                            <constraint firstItem="jhj-W4-RPh" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="ZBy-cI-8I7"/>
-                            <constraint firstItem="K36-CM-KIq" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="dSp-hI-th2"/>
-                            <constraint firstItem="MHf-UZ-fr5" firstAttribute="width" secondItem="S9c-D5-Yfz" secondAttribute="width" id="evd-0R-fP4"/>
-                            <constraint firstItem="097-7r-i4y" firstAttribute="top" secondItem="K36-CM-KIq" secondAttribute="bottom" constant="10" id="h3l-Wm-4UD"/>
-                            <constraint firstItem="jhj-W4-RPh" firstAttribute="width" secondItem="omQ-kH-VJJ" secondAttribute="width" id="lsr-Ek-5eD"/>
-                            <constraint firstItem="nnO-B0-re5" firstAttribute="leading" secondItem="NPF-y4-uaV" secondAttribute="leading" constant="30" id="mKY-56-E3b"/>
-                            <constraint firstItem="S9c-D5-Yfz" firstAttribute="top" secondItem="jhj-W4-RPh" secondAttribute="bottom" constant="30" id="mwN-Gn-9ji"/>
-                            <constraint firstItem="asw-Nu-gZC" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="onm-fD-G95"/>
-                            <constraint firstItem="KoA-Dh-tOZ" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="qLg-db-v83"/>
-                            <constraint firstItem="MHf-UZ-fr5" firstAttribute="top" secondItem="S9c-D5-Yfz" secondAttribute="bottom" constant="10" id="sbE-Vo-IBJ"/>
-                            <constraint firstItem="MHf-UZ-fr5" firstAttribute="centerX" secondItem="S9c-D5-Yfz" secondAttribute="centerX" id="wGm-XA-gDP"/>
-                            <constraint firstItem="y5H-NY-hQc" firstAttribute="centerX" secondItem="4ic-XL-zzL" secondAttribute="centerX" id="z9A-bX-gSL"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NPF-y4-uaV"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ixd-Nv-4O3"/>
+                <pickerView contentMode="scaleToFill" id="nja-p5-suF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <connections>
-                        <outlet property="btnSelectGrade" destination="nnO-B0-re5" id="JQa-yJ-CHI"/>
-                        <outlet property="gradesPicker" destination="EMp-bh-Ili" id="QJV-p3-XcG"/>
-                        <outlet property="imageView" destination="HVQ-e7-wcL" id="xCq-ZC-3i1"/>
-                        <outlet property="toolbar" destination="hj4-yj-gq4" id="3oJ-3s-3Wc"/>
-                        <outlet property="txtAuthor" destination="097-7r-i4y" id="dLE-Tj-IZC"/>
-                        <outlet property="txtGrades" destination="KoA-Dh-tOZ" id="Xm8-7Q-ihT"/>
-                        <outlet property="txtSubject" destination="MHf-UZ-fr5" id="Veu-uS-9lH"/>
-                        <outlet property="txtTitle" destination="jhj-W4-RPh" id="PYx-jk-6UE"/>
+                        <outlet property="dataSource" destination="Baf-rg-Auv" id="YRs-BF-eoS"/>
+                        <outlet property="delegate" destination="Baf-rg-Auv" id="On7-Pw-IBj"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gh3-5I-Rko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hj4-yj-gq4">
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Lz9-it-fUd">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="40J-jI-lwj"/>
-                        <barButtonItem systemItem="done" id="s4z-pM-or6">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aaQ-uF-kdc"/>
+                        <barButtonItem title="Done" id="Q2M-T9-YSe">
                             <connections>
-                                <action selector="doneButtonTapped:" destination="Ocq-lq-nXp" id="4VT-UN-fQU"/>
+                                <action selector="doneButtonTapped:" destination="Baf-rg-Auv" id="yzR-LJ-gXd"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <pickerView contentMode="scaleToFill" id="EMp-bh-Ili">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lo5-x5-FCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Baf-rg-Auv" customClass="BooksUploadViewController" customModule="TextBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rqo-KT-eEQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOf-40-LP3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzp-MP-6Kh">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DFf-Ml-Cbg">
+                                                <rect key="frame" x="30" y="260" width="354" height="288"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyL-S2-CfG">
+                                                        <rect key="frame" x="138.5" y="0.0" width="77" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBT-Js-Ggd">
+                                                        <rect key="frame" x="112" y="30.5" width="130" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Em-22-fm8">
+                                                        <rect key="frame" x="148" y="74.5" width="58.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkw-HB-GUd">
+                                                        <rect key="frame" x="119.5" y="105" width="115.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHt-bn-Tzk">
+                                                        <rect key="frame" x="153.5" y="149" width="47" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Grade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blf-PJ-DPX">
+                                                        <rect key="frame" x="124.5" y="179.5" width="105.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-9v-6BH">
+                                                        <rect key="frame" x="151.5" y="223.5" width="51.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Author name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-Nd-G64">
+                                                        <rect key="frame" x="102.5" y="254" width="149" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqm-k2-GuQ">
+                                                <rect key="frame" x="40" y="200" width="334" height="30"/>
+                                                <state key="normal" title="Upload Image"/>
+                                                <connections>
+                                                    <action selector="uploadImageTapped:" destination="Baf-rg-Auv" eventType="touchUpInside" id="7d2-Bk-M1f"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uzc-Zw-tr3">
+                                                <rect key="frame" x="157" y="60" width="100" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uzc-Zw-tr3" secondAttribute="height" multiplier="1:1.2" id="Hbc-Um-fzo"/>
+                                                    <constraint firstAttribute="width" constant="100" id="jQr-r7-VIu"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUB-gV-aJI">
+                                                <rect key="frame" x="40" y="578" width="334" height="33"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Select Book Condition">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onClickSelectCondition:" destination="Baf-rg-Auv" eventType="touchUpInside" id="C9N-0g-dym"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-yX-g28">
+                                                <rect key="frame" x="40" y="631" width="334" height="30"/>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="submitTapped:" destination="Baf-rg-Auv" eventType="touchUpInside" id="rhf-PF-Sj5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DFf-Ml-Cbg" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="30" id="4Wg-we-7lU"/>
+                                            <constraint firstAttribute="trailing" secondItem="DFf-Ml-Cbg" secondAttribute="trailing" constant="30" id="AkR-kT-myV"/>
+                                            <constraint firstItem="yUB-gV-aJI" firstAttribute="centerX" secondItem="Xzp-MP-6Kh" secondAttribute="centerX" id="B2E-X8-r4Y"/>
+                                            <constraint firstItem="RCg-yX-g28" firstAttribute="centerX" secondItem="Xzp-MP-6Kh" secondAttribute="centerX" id="Gdg-0f-ajk"/>
+                                            <constraint firstAttribute="trailing" secondItem="RCg-yX-g28" secondAttribute="trailing" constant="40" id="L7c-b2-jBL"/>
+                                            <constraint firstItem="DFf-Ml-Cbg" firstAttribute="top" secondItem="Kqm-k2-GuQ" secondAttribute="bottom" constant="30" id="OYM-l0-Nmh"/>
+                                            <constraint firstAttribute="trailing" secondItem="yUB-gV-aJI" secondAttribute="trailing" constant="40" id="Qq0-q5-WZX"/>
+                                            <constraint firstItem="RCg-yX-g28" firstAttribute="top" secondItem="yUB-gV-aJI" secondAttribute="bottom" constant="20" id="SPf-2B-Wai"/>
+                                            <constraint firstItem="yUB-gV-aJI" firstAttribute="top" secondItem="DFf-Ml-Cbg" secondAttribute="bottom" constant="30" id="Y7X-mo-ogw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kqm-k2-GuQ" secondAttribute="trailing" constant="40" id="YEv-QK-NqG"/>
+                                            <constraint firstItem="uzc-Zw-tr3" firstAttribute="centerX" secondItem="Xzp-MP-6Kh" secondAttribute="centerX" id="b77-Zo-5jn"/>
+                                            <constraint firstItem="DFf-Ml-Cbg" firstAttribute="centerY" secondItem="Xzp-MP-6Kh" secondAttribute="centerY" id="bTp-XK-myo"/>
+                                            <constraint firstItem="yUB-gV-aJI" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="40" id="i9T-47-GdO"/>
+                                            <constraint firstItem="Kqm-k2-GuQ" firstAttribute="top" secondItem="uzc-Zw-tr3" secondAttribute="bottom" constant="20" id="nET-p4-KzK"/>
+                                            <constraint firstItem="RCg-yX-g28" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="40" id="oAO-b7-iwQ"/>
+                                            <constraint firstItem="Kqm-k2-GuQ" firstAttribute="leading" secondItem="Xzp-MP-6Kh" secondAttribute="leading" constant="40" id="tfn-dQ-1JH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xzp-MP-6Kh" firstAttribute="top" secondItem="lOf-40-LP3" secondAttribute="top" id="50p-t2-KKe"/>
+                                    <constraint firstItem="Xzp-MP-6Kh" firstAttribute="width" secondItem="lOf-40-LP3" secondAttribute="width" id="6Ra-ks-QbS"/>
+                                    <constraint firstItem="Xzp-MP-6Kh" firstAttribute="height" secondItem="lOf-40-LP3" secondAttribute="height" priority="250" id="JyE-hr-gcB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xzp-MP-6Kh" secondAttribute="bottom" id="WKX-9d-GSm"/>
+                                    <constraint firstItem="Xzp-MP-6Kh" firstAttribute="leading" secondItem="lOf-40-LP3" secondAttribute="leading" id="heo-QS-jIl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xzp-MP-6Kh" secondAttribute="trailing" id="rM4-22-ag2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lOf-40-LP3" firstAttribute="leading" secondItem="dYf-hl-l0L" secondAttribute="leading" id="Oie-dW-fdl"/>
+                            <constraint firstItem="lOf-40-LP3" firstAttribute="trailing" secondItem="dYf-hl-l0L" secondAttribute="trailing" id="oQe-XD-7Cj"/>
+                            <constraint firstAttribute="bottom" secondItem="lOf-40-LP3" secondAttribute="bottom" id="qwY-N3-H66"/>
+                            <constraint firstItem="lOf-40-LP3" firstAttribute="top" secondItem="dYf-hl-l0L" secondAttribute="top" id="zee-ec-dZc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dYf-hl-l0L"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nyq-hZ-sz0"/>
                     <connections>
-                        <outlet property="dataSource" destination="Ocq-lq-nXp" id="VSS-kS-tDu"/>
-                        <outlet property="delegate" destination="Ocq-lq-nXp" id="OSf-nR-736"/>
+                        <outlet property="btnSelectCondition" destination="yUB-gV-aJI" id="mTX-Vn-r6P"/>
+                        <outlet property="gradesPicker" destination="nja-p5-suF" id="eKX-gY-Al9"/>
+                        <outlet property="imageView" destination="uzc-Zw-tr3" id="rLl-dI-QGJ"/>
+                        <outlet property="toolbar" destination="Lz9-it-fUd" id="LJX-DH-2bk"/>
+                        <outlet property="txtAuthor" destination="Yv9-Nd-G64" id="NgX-LX-b9U"/>
+                        <outlet property="txtGrades" destination="Blf-PJ-DPX" id="SMp-yk-ZBE"/>
+                        <outlet property="txtSubject" destination="wkw-HB-GUd" id="jUo-en-gxl"/>
+                        <outlet property="txtTitle" destination="gBT-Js-Ggd" id="dEr-k2-XrD"/>
                     </connections>
-                </pickerView>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="2536" y="538"/>
+            <point key="canvasLocation" x="2577" y="525"/>
         </scene>
     </scenes>
     <resources>
@@ -799,7 +808,4 @@
             <color red="1" green="0.83300000429153442" blue="0.80900001525878906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BLV-wD-P6r"/>
-    </inferredMetricsTieBreakers>
 </document>
