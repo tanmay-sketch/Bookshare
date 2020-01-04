@@ -23,18 +23,13 @@ class BooksUploadViewController: UIViewController {
     @IBOutlet var txtTitle: UITextField?
     @IBOutlet var txtSubject: UITextField?
     @IBOutlet var txtAuthor: UITextField?
-    @IBOutlet var btnSelectCondition: UIButton!
+    @IBOutlet var txtCondition: UITextField?
     
     @IBOutlet var scrollView: UIScrollView!
-    
+    @IBOutlet var conditionPicker: UIPickerView?
     @IBOutlet var gradesPicker: UIPickerView?
     @IBOutlet var toolbar: UIToolbar?
     
-    
-    let transparentView = UIView()
-    let tableView = UITableView()
-    var selectedButton = UIButton()
-    var dataSource = [String]()
     
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
@@ -42,8 +37,12 @@ class BooksUploadViewController: UIViewController {
 
     var imagePicker: UIImagePickerController!
     
+    let bookconditions:[String] = ["Very Good", "Good", "Bad"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        conditionPicker?.dataSource = self
+        conditionPicker?.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker?.sourceType = .photoLibrary
         imagePicker?.delegate = self
@@ -54,10 +53,9 @@ class BooksUploadViewController: UIViewController {
         txtTitle?.inputAccessoryView = toolbar
         txtAuthor?.inputAccessoryView = toolbar
         txtSubject?.inputAccessoryView = toolbar
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        txtCondition?.inputView = conditionPicker
+        txtCondition?.inputAccessoryView = toolbar
+
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -77,41 +75,7 @@ class BooksUploadViewController: UIViewController {
             })
         }
     }
-    func addTransparentView(frames: CGRect) {
-        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-        transparentView.frame = window?.frame ?? self.view.frame
-        self.view.addSubview(transparentView)
-        
-        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        self.view.addSubview(tableView)
-        tableView.layer.cornerRadius = 5
-        
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        tableView.reloadData()
-        
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        transparentView.addGestureRecognizer(tapgesture)
-        transparentView.alpha = 0
-        
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 50))
-        }, completion: nil)
-    }
-    
-    @objc func removeTransparentView() {
-        let frames = selectedButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        }, completion: nil)
-    }
-    
-    @IBAction func onClickSelectCondition(_ sender: Any) {
-        dataSource = ["Very Good","Good","Bad"]
-        addTransparentView(frames: btnSelectCondition.frame)
-        selectedButton = btnSelectCondition
-    }
+  
     
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
@@ -242,26 +206,25 @@ extension BooksUploadViewController : UIPickerViewDataSource, UIPickerViewDelega
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         txtGrades?.text = "\(row+6)"
     }
+    
 }
 
-extension BooksUploadViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = dataSource[indexPath.row]
-        return cell
+extension BooksUploadViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+    
+     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return bookconditions.count
+       }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return bookconditions[row]
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
-        removeTransparentView()
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txtGrades?.text = bookconditions[r]
     }
 }
 
@@ -275,8 +238,10 @@ extension BooksUploadViewController: UITextFieldDelegate {
             txtGrades?.becomeFirstResponder()
         } else if textField == txtGrades {
             txtAuthor?.becomeFirstResponder()
+        } else if textField == txtAuthor{
+            txtCondition?.becomeFirstResponder()
         } else {
-            txtAuthor?.resignFirstResponder()
+            txtCondition?.resignFirstResponder()
         }
         return true
     }
