@@ -11,9 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
-class CellClass: UITableViewCell {
-    
-}
+
 
 class BooksUploadViewController: UIViewController {
 
@@ -39,6 +37,8 @@ class BooksUploadViewController: UIViewController {
     
     let bookconditions:[String] = ["Very Good", "Good", "Bad"]
     
+    var uploadCompleted: ((_ isSuccess:Bool) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         conditionPicker?.dataSource = self
@@ -46,7 +46,7 @@ class BooksUploadViewController: UIViewController {
         imagePicker = UIImagePickerController()
         imagePicker?.sourceType = .photoLibrary
         imagePicker?.delegate = self
-        imagePicker?.allowsEditing = true
+//        imagePicker?.allowsEditing = true
         
         txtGrades?.inputView = gradesPicker
         txtGrades?.inputAccessoryView = toolbar
@@ -104,6 +104,7 @@ class BooksUploadViewController: UIViewController {
         let subject = txtSubject!.text;
         let grade = txtGrades!.text;
         let author = txtAuthor!.text;
+        let condition = txtCondition!.text;
     
         if title?.isEmpty ?? true {
             showalert(with: "Error", message: "Title not entered")
@@ -116,6 +117,9 @@ class BooksUploadViewController: UIViewController {
             return
         } else if author?.isEmpty  ?? true {
             showalert(with: "Error", message: "Author not entered")
+            return
+        } else if condition?.isEmpty  ?? true {
+            showalert(with: "Error", message: "Condition not entered")
             return
         } else if imageView?.image == nil {
             showalert(with: "Error", message:"Image not selected")
@@ -138,27 +142,30 @@ class BooksUploadViewController: UIViewController {
         doc["author"] = author
         doc["grade"] = grade
         doc["subject"] = subject
+        doc["condition"] = condition
         doc["user"] = userData
         
         if let image = imageView?.image, let data = image.pngData() {
             
             let storageRef = storage.reference()
-            let booksRef = storageRef.child("book_\(userID).png")
+            let uniqueId = UUID().uuidString
+            let booksRef = storageRef.child("\(uniqueId).png")
             let metadata = StorageMetadata()
             metadata.contentType = "image/png"
             
-            booksRef.putData(data, metadata: nil) { (metadata, error) in
+            booksRef.putData(data, metadata: nil) { [weak self] (metadata, error) in
                 if let someError = error {
                     print("Some Error Occured \(someError)")
                 } else if let _metadata = metadata {
                     print("Image Upload success \(_metadata.dictionaryRepresentation())")
                     doc["image"] = _metadata.path ?? "nil"
-                    self.db.collection("/testing/").addDocument(data: doc, completion: { error in
+                    self?.db.collection("/textbooks/").addDocument(data: doc, completion: { error in
                         if let someError = error {
-                            self.showalert(with: "Error", message: someError.localizedDescription)
+                            self?.showalert(with: "Error", message: someError.localizedDescription)
                         } else {
-                            self.showalert(with: "Success", message: "Book Uploaded Successfully", okAction: { _ in
-                                self.navigationController?.popViewController(animated: true)
+                            self?.showalert(with: "Success", message: "Book Uploaded Successfully", okAction: { _ in
+                                self?.uploadCompleted?(true)
+                                self?.navigationController?.popViewController(animated: true)
                             })
                         }
                     })
@@ -182,7 +189,7 @@ extension BooksUploadViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("info \(info)")
         picker.dismiss(animated: true) {
-            if let image = info[.editedImage] as? UIImage {
+            if let image = info[.originalImage] as? UIImage {
                 self.imageView?.image = image
             }
         }
@@ -192,7 +199,11 @@ extension BooksUploadViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension BooksUploadViewController : UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 7
+        if pickerView == gradesPicker {
+            return 7
+        } else {
+            return 3
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -200,32 +211,21 @@ extension BooksUploadViewController : UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == gradesPicker {
         return "Grade \(row+6)"
+        } else {
+            return bookconditions[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == gradesPicker {
         txtGrades?.text = "\(row+6)"
+        } else {
+            txtCondition?.text = bookconditions[row]
+        }
     }
     
-}
-
-extension BooksUploadViewController: UIPickerViewDataSource, UIPickerViewDelegate{
-    
-     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return bookconditions.count
-       }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return bookconditions[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        txtGrades?.text = bookconditions[r]
-    }
 }
 
 

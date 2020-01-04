@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Auth.auth().currentUser != nil  {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(identifier: "LoginNavController")
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginNavController")
             window?.rootViewController = controller
         }
         

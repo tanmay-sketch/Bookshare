@@ -22,23 +22,28 @@ class TextBooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        db.collection("/books /").getDocuments() { (querySnapshot, err) in
+        getTextBooksAndReload()
+    }
+    
+    func getTextBooksAndReload() {
+        db.collection("/textbooks/").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.originalBooks.removeAll()
+                self.books.removeAll()
                 for document in querySnapshot!.documents {
-                    document.data().forEach { item in
-                        if let value = item.value as? [String: Any] {
-                            let book = Book(with: value)
-                            self.originalBooks.append(book)
-                            self.books.append(book)
-                        }
-                        self.collectionView?.reloadData()
-                    }
+                    let value = document.data()
+                    let book = Book(with: value)
+                    self.originalBooks.append(book)
+                    self.books.append(book)
                 }
+                self.collectionView?.reloadData()
             }
         }
     }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -49,7 +54,6 @@ class TextBooksViewController: UIViewController {
                 filterController.filterGrade = self.filterGrade
                 filterController.gradeSelected = { [weak self] grade in
                     self?.filterGrade = grade
-//                    print("Grade selected is \(grade)")
                     self?.showBooksFor(grade: grade)
                 }
             }
@@ -59,6 +63,12 @@ class TextBooksViewController: UIViewController {
         
             let detailsController = segue.destination as! BookDetailsViewController
             detailsController.book = books[indexPath.item]
+        } else if let uploadVC = segue.destination as? BooksUploadViewController {
+            uploadVC.uploadCompleted = { [weak self] isSuccess in
+                if isSuccess {
+                    self?.getTextBooksAndReload()
+                }
+            }
         }
         
     }
@@ -66,7 +76,7 @@ class TextBooksViewController: UIViewController {
     private func getGradesFromBooks() -> [Int] {
         var grades = Set<Int>()
         for book in originalBooks {
-            grades = grades.union(book.grade)
+            grades.insert(book.grade)
         }
         return Array(grades.sorted())
     }
@@ -74,7 +84,7 @@ class TextBooksViewController: UIViewController {
     private func showBooksFor(grade: Int?) {
         if let gradeSelected = grade {
             books = originalBooks.filter { book -> Bool in
-                return book.grade.contains(gradeSelected)
+                return book.grade == gradeSelected
             }
         } else {
             books.removeAll()
