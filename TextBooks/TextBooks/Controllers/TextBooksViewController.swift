@@ -34,7 +34,7 @@ class TextBooksViewController: UIViewController {
                 self.books.removeAll()
                 for document in querySnapshot!.documents {
                     let value = document.data()
-                    let book = Book(with: value)
+                    let book = Book(with:document.documentID, dict: value)
                     self.originalBooks.append(book)
                     self.books.append(book)
                 }

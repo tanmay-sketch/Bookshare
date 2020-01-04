@@ -27,6 +27,8 @@ struct User {
 
 struct Book {
     
+    let id: String
+    
     let title: String
     let author: [String]
     let image: String?
@@ -36,10 +38,11 @@ struct Book {
     
     let user: User
     
-    init(with dict: [String: Any]) {
+    init(with id: String, dict: [String: Any]) {
         guard let title = dict["title"] as? String else {
             fatalError("Book Title was not given")
         }
+        self.id = id
         
         guard let _user = dict["user"] as? [String:Any] else {
             fatalError("User data was not given")
