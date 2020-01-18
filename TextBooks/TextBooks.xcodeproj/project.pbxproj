@@ -21,6 +21,7 @@
 		BA00E3512358DA6E0071C3A1 /* TextBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */; };
 		BA049E3E2396BC27006612F6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA049E3D2396BC27006612F6 /* Book.swift */; };
 		BA049E3F2396BD32006612F6 /* GradeDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A35CA2369BB6400642939 /* GradeDataFetcher.swift */; };
+		BA3A302323D0C32C00756DCE /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A302223D0C32C00756DCE /* RequestsViewController.swift */; };
 		BA50812B2377D01D00CD63BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA50812A2377D01D00CD63BF /* GoogleService-Info.plist */; };
 		BA50812D2377D2B300CD63BF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50812C2377D2B300CD63BF /* AuthViewController.swift */; };
 		BA747791239BACE700AA9DD1 /* BooksFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA747790239BACE700AA9DD1 /* BooksFilterViewController.swift */; };
@@ -46,6 +47,7 @@
 		5B7B886140EC6BB72A5DB738 /* Pods-TextBooks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextBooks.release.xcconfig"; path = "Target Support Files/Pods-TextBooks/Pods-TextBooks.release.xcconfig"; sourceTree = "<group>"; };
 		BA00E3502358DA6E0071C3A1 /* TextBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBooksViewController.swift; sourceTree = "<group>"; };
 		BA049E3D2396BC27006612F6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		BA3A302223D0C32C00756DCE /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		BA50812A2377D01D00CD63BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA50812C2377D2B300CD63BF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BA747790239BACE700AA9DD1 /* BooksFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksFilterViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				117AF6CE2354DFB600D286C3 /* OTPViewController.swift */,
 				BA747790239BACE700AA9DD1 /* BooksFilterViewController.swift */,
 				11BEB7A823B5F61A00FF66DE /* BooksUploadViewController.swift */,
+				BA3A302223D0C32C00756DCE /* RequestsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3A302323D0C32C00756DCE /* RequestsViewController.swift in Sources */,
 				BA50812D2377D2B300CD63BF /* AuthViewController.swift in Sources */,
 				BAD5954923C0999E00C6F991 /* Request.swift in Sources */,
 				BA747791239BACE700AA9DD1 /* BooksFilterViewController.swift in Sources */,
