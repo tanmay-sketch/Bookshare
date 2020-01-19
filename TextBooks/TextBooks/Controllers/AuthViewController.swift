@@ -32,7 +32,9 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
       // handle user and error as necessary
         if error == nil {
-            self.performSegue(withIdentifier: "showGrades", sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginNavController")
+            UIApplication.shared.delegate?.window??.rootViewController = controller
         }
     }
     
